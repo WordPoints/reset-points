@@ -52,7 +52,7 @@ function wordpoints_points_reset_type( $points_type ) {
 		return false;
 	}
 
-	delete_metadata( 'user', 0, $meta_key, '', true );
+	update_metadata( 'user', 0, $meta_key, (int) wordpoints_get_points_type_setting( $points_type, 'reset_value' ) );
 
 	return true;
 }
