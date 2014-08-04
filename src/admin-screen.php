@@ -42,7 +42,7 @@ $points_types = wordpoints_get_points_types();
 						unset( $points_type['reset_date'] );
 
 						if ( wordpoints_update_points_type( $slug, $points_type ) ) {
-							wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; is no longer scheduled for an automatic reset.', 'wordpoints-points-reset' ), $points_type['name'], $points_type['reset_date'] ) );
+							wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; is no longer scheduled for an automatic reset.', 'wordpoints-points-reset' ), $points_type['name'] ) );
 						} else {
 							wordpoints_show_admin_error( sprintf( __( 'There was an error clearing the reset date for the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
 						}
