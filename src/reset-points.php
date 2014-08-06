@@ -47,12 +47,13 @@ if ( is_admin() ) {
 function wordpoints_points_reset_type( $points_type ) {
 
 	$meta_key = wordpoints_get_points_user_meta_key( $points_type );
+	$reset_value = (int) wordpoints_get_points_type_setting( $points_type, 'reset_value' );
 
-	if ( ! $meta_key ) {
-		return false;
+	$user_ids = get_users( array( 'fields' => 'ids' ) );
+
+	foreach ( $user_ids as $user_id ) {
+		update_user_meta( $user_id, $meta_key, $reset_value );
 	}
-
-	update_metadata( 'user', 0, $meta_key, (int) wordpoints_get_points_type_setting( $points_type, 'reset_value' ) );
 
 	return true;
 }
