@@ -9,7 +9,7 @@
  * Description: Reset your users points on demand or automatically on a scheduled date.
  *
  * ---------------------------------------------------------------------------------|
- * Copyright 2013-2014  J.D. Grimes  (email : jdg@codesymphony.co)
+ * Copyright 2013-2015  J.D. Grimes  (email : jdg@codesymphony.co)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or later, as
