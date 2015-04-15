@@ -88,6 +88,7 @@ function wordpoints_points_reset_on_date() {
 
 		if (
 			! empty( $points_type['reset_date'] )
+			&& wordpoints_posint( $points_type['reset_date'] )
 			&& $points_type['reset_date'] <= $now
 		) {
 
