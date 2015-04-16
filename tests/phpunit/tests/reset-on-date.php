@@ -74,7 +74,7 @@ class WordPoints_Points_Reset_On_Date_Test extends WordPoints_Points_UnitTestCas
 	public function test_not_reset_if_date_in_future() {
 
 		$settings = wordpoints_get_points_type( 'points' );
-		$settings['reset_date']  = current_time( 'timestamp' ) + 5;
+		$settings['reset_date'] = current_time( 'timestamp' ) + 5;
 		wordpoints_update_points_type( 'points', $settings );
 
 		wordpoints_points_reset_on_date();
@@ -95,7 +95,7 @@ class WordPoints_Points_Reset_On_Date_Test extends WordPoints_Points_UnitTestCas
 	public function test_not_reset_if_date_invalid() {
 
 		$settings = wordpoints_get_points_type( 'points' );
-		$settings['reset_date']  = 'invalid';
+		$settings['reset_date'] = 'invalid';
 		wordpoints_update_points_type( 'points', $settings );
 
 		wordpoints_points_reset_on_date();
@@ -116,7 +116,7 @@ class WordPoints_Points_Reset_On_Date_Test extends WordPoints_Points_UnitTestCas
 	public function test_points_reset_if_date_passed() {
 
 		$settings = wordpoints_get_points_type( 'points' );
-		$settings['reset_date']  = current_time( 'timestamp' ) - 5;
+		$settings['reset_date'] = current_time( 'timestamp' ) - 5;
 		wordpoints_update_points_type( 'points', $settings );
 
 		wordpoints_points_reset_on_date();
