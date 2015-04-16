@@ -20,6 +20,11 @@
 		wordpoints_reset_admin_screen_process();
 
 		?>
+
+		<p>
+			<?php esc_html_e( 'Reset all users&#8217; points to a certain value, either right now or on a future date.', 'wordpoints-reset-points' ); ?>
+		</p>
+
 		<form id="reset-points-type" method="POST">
 			<table class="widefat">
 				<tbody>
@@ -28,7 +33,7 @@
 							<th><?php echo esc_html( $points_type['name'] ); ?></th>
 							<td>
 								<label for="reset-points-type-value-<?php echo esc_attr( $slug ); ?>">
-									<?php esc_html_e( 'Reset Value:', 'wordpoints-points-reset' ); ?>
+									<?php esc_html_e( 'Reset to value:', 'wordpoints-points-reset' ); ?>
 								</label>
 								<input
 									type="number"
