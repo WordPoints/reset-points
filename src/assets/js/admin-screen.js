@@ -11,7 +11,10 @@ jQuery( document ).ready( function( $ ) {
 		$resetForm = $( '#reset-points-type'),
 		$dialogTemplate;
 
-	$resetForm.find( 'input[type=date]' ).datepicker( { dateFormat: 'yy-mm-dd' } );
+	$resetForm.find( 'input[type=date]' ).datepicker(
+		{ dateFormat: 'yy-mm-dd', minDate: 1 }
+	);
+
 	$resetForm.find( '.delete' ).click( function( event ) {
 		if ( $currentDelete === false ) {
 
