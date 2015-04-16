@@ -20,6 +20,11 @@
 		wordpoints_reset_admin_screen_process();
 
 		?>
+
+		<p>
+			<?php esc_html_e( 'Reset all users&#8217; points to a certain value, either right now or on a future date.', 'wordpoints-reset-points' ); ?>
+		</p>
+
 		<form id="reset-points-type" method="POST">
 			<table class="widefat">
 				<tbody>
@@ -28,7 +33,7 @@
 							<th><?php echo esc_html( $points_type['name'] ); ?></th>
 							<td>
 								<label for="reset-points-type-value-<?php echo esc_attr( $slug ); ?>">
-									<?php esc_html_e( 'Reset Value:', 'wordpoints-points-reset' ); ?>
+									<?php esc_html_e( 'Reset to value:', 'wordpoints-points-reset' ); ?>
 								</label>
 								<input
 									type="number"
@@ -37,7 +42,6 @@
 									value="<?php echo ( ! empty( $points_type['reset_value'] ) ) ? (int) $points_type['reset_value'] : 0; ?>"
 								/>
 							</td>
-							<td><?php submit_button( __( 'Reset Now', 'wordpoints-points-reset' ), 'delete', "reset-points-type-{$slug}", false ); ?></td>
 							<td>
 								<label for="reset-points-type-date-<?php echo esc_attr( $slug ); ?>">
 									<?php esc_html_e( 'Reset on date:', 'wordpoints-points-reset' ); ?>
@@ -50,6 +54,7 @@
 								</label>
 								<?php submit_button( __( 'Set Date', 'wordpoints-points-reset' ), 'secondary', "reset-points-type-date-set-{$slug}", false ); ?>
 							</td>
+							<td><?php submit_button( __( 'Reset Now', 'wordpoints-points-reset' ), 'delete', "reset-points-type-{$slug}", false ); ?></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
