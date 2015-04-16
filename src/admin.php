@@ -68,9 +68,19 @@ function wordpoints_reset_admin_screen_process() {
 
 	foreach ( $points_types as $slug => $points_type ) {
 
-		if ( isset( $_POST["reset-points-type-{$slug}"], $_POST["reset-points-type-value-{$slug}"] ) ) {
+		if ( ! isset( $_POST[ "reset-points-type-value-{$slug}" ] ) ) {
+			continue;
+		}
 
-			$points_type['reset_value'] = (int) $_POST["reset-points-type-value-{$slug}"];
+		if ( false === wordpoints_int( $_POST[ "reset-points-type-value-{$slug}" ] ) ) {
+
+			wordpoints_show_admin_error( sprintf( __( 'There was an error resetting the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
+			return;
+		}
+
+		$points_type['reset_value'] = $_POST[ "reset-points-type-value-{$slug}" ];
+
+		if ( isset( $_POST["reset-points-type-{$slug}"] ) ) {
 
 			wordpoints_update_points_type( $slug, $points_type );
 
@@ -82,9 +92,7 @@ function wordpoints_reset_admin_screen_process() {
 
 			break;
 
-		} elseif ( isset( $_POST["reset-points-type-date-set-{$slug}"], $_POST["reset-points-type-date-{$slug}"], $_POST["reset-points-type-value-{$slug}"] ) ) {
-
-			$points_type['reset_value'] = (int) $_POST["reset-points-type-value-{$slug}"];
+		} elseif ( isset( $_POST["reset-points-type-date-set-{$slug}"], $_POST["reset-points-type-date-{$slug}"] ) ) {
 
 			$raw_date = $_POST["reset-points-type-date-{$slug}"];
 
