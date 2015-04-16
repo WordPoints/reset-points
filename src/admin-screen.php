@@ -17,76 +17,7 @@ $points_types = wordpoints_get_points_types();
 	<?php if ( ! $points_types ) : ?>
 		<?php wordpoints_show_admin_error( __( 'You need to create a points type before you can reset points.', 'wordpoints-points-reset' ) ); ?>
 	<?php else : ?>
-		<?php
-
-		if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( $_POST['_wpnonce'], 'wordpoints-reset-points' ) ) {
-
-			foreach ( $points_types as $slug => $points_type ) {
-
-				if ( isset( $_POST[ "reset-points-type-{$slug}" ], $_POST[ "reset-points-type-value-{$slug}" ] ) ) {
-
-					$points_type['reset_value'] = (int) $_POST[ "reset-points-type-value-{$slug}" ];
-
-					wordpoints_update_points_type( $slug, $points_type );
-
-					if ( wordpoints_points_reset_type( $slug ) ) {
-						wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; was reset successfully.', 'wordpoints-points-reset' ), $points_type['name'] ) );
-					} else {
-						wordpoints_show_admin_error( sprintf( __( 'There was an error resetting the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
-					}
-
-					break;
-
-				} elseif ( isset( $_POST[ "reset-points-type-date-set-{$slug}" ], $_POST[ "reset-points-type-date-{$slug}" ], $_POST[ "reset-points-type-value-{$slug}" ]  ) ) {
-
-					$points_type['reset_value'] = (int) $_POST[ "reset-points-type-value-{$slug}" ];
-
-					$raw_date = $_POST[ "reset-points-type-date-{$slug}" ];
-
-					if ( empty( $raw_date ) && ! empty( $points_type ) ) {
-
-						unset( $points_type['reset_date'] );
-
-						if ( wordpoints_update_points_type( $slug, $points_type ) ) {
-							wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; is no longer scheduled for an automatic reset.', 'wordpoints-points-reset' ), $points_type['name'] ) );
-						} else {
-							wordpoints_show_admin_error( sprintf( __( 'There was an error clearing the reset date for the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
-						}
-
-					} else {
-
-						$now  = current_time( 'timestamp' );
-						$date = strtotime( $raw_date, $now );
-
-						// If the date hasn't changed, do nothing.
-						if ( isset( $points_type['reset_date'] ) && $points_type['reset_date'] == $date ) {
-							break;
-						}
-
-						if ( $date && $raw_date === date( 'Y-m-d', $date ) && $date > $now ) {
-
-							$points_type['reset_date'] = $date;
-
-							if ( wordpoints_update_points_type( $slug, $points_type ) ) {
-								wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; will automatically be reset on %s.', 'wordpoints-points-reset' ), $points_type['name'], $raw_date ) );
-							} else {
-								wordpoints_show_admin_error( sprintf( __( 'There was an error setting the reset date for the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
-							}
-
-						} else {
-							wordpoints_show_admin_error( __( 'Please enter a valid future date.', 'wordpoints-points-reset' ) );
-						}
-					}
-
-					break;
-				}
-			}
-
-			// Retrieve the up-to-date points types settings.
-			$points_types = wordpoints_get_points_types();
-		}
-
-		?>
+		<?php wordpoints_reset_admin_screen_process(); ?>
 		<form id="reset-points-type" method="POST">
 			<table class="widefat">
 				<tbody>
