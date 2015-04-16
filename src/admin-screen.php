@@ -61,54 +61,5 @@
 			</table>
 			<?php wp_nonce_field( 'wordpoints-reset-points' ); ?>
 		</form>
-		<script>
-		jQuery( document ).ready( function( $ ) {
-			var $currentDelete = false;
-
-			$( '#reset-points-type input[type=date]' ).datepicker( { dateFormat: 'yy-mm-dd' } );
-			$( '#reset-points-type .delete' ).click( function( event ) {
-				if ( $currentDelete === false ) {
-
-					$currentDelete = $( this );
-
-					event.preventDefault();
-
-					$(
-						'<div title="<?php esc_attr_e( 'Are you sure?', 'wordpoints-points-reset' ); ?>">'
-							+ '<p><?php esc_html_e( 'Are you sure you want to reset this points type?', 'wordpoints-points-reset' ); ?></p>'
-							+ '<p><strong>' + $currentDelete.closest( 'tr' ).find( 'th' ).text() + ': ' + $currentDelete.closest( 'tr' ).find( 'input[type=number]' ).val() + '</strong></p>'
-							+ '<p><?php esc_html_e( 'This action cannot be undone.', 'wordpoints-points-reset' ); ?></p>'
-						+ '</div>'
-
-					).dialog({
-						dialogClass: 'wp-dialog wordpoints-points-reset-dialog',
-						resizable: false,
-						draggable: false,
-						height: 250,
-						modal: true,
-						buttons: [
-							{
-								text: '<?php echo esc_js( __( 'Reset', 'wordpoints-points-reset' ) ); ?>',
-								class: 'button-primary',
-								click: function() {
-									$( this ).dialog( 'close' );
-									$currentDelete.click();
-									$currentDelete = false;
-								}
-							},
-							{
-								text: '<?php  echo esc_js( __( 'Cancel', 'wordpoints-points-reset' ) ); ?>',
-								class: 'button-secondary',
-								click: function() {
-									$( this ).dialog( 'close' );
-									$currentDelete = false;
-								}
-							}
-						]
-					});
-				}
-			});
-		});
-		</script>
 	<?php endif; ?>
 </div>

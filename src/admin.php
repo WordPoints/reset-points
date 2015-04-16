@@ -36,14 +36,29 @@ add_action( 'network_admin_menu', 'wordpoints_reset_points_admin_menu' );
  */
 function wordpoints_reset_points_admin_screen() {
 
-	wp_enqueue_style( 'wp-jquery-ui-dialog' );
 	wp_enqueue_style(
 		'wordpoints-points-reset-jquery-ui-datepicker'
 		, wordpoints_modules_url( 'assets/css/jquery-ui-1.10.4.custom.css', __FILE__ )
+		, array( 'wp-jquery-ui-dialog' )
 	);
 
-	wp_enqueue_script( 'jquery-ui-datepicker' );
-	wp_enqueue_script( 'jquery-ui-dialog' );
+	wp_enqueue_script(
+		'wordpoints-reset-points-admin-screen'
+		, wordpoints_modules_url( 'assets/js/admin-screen.js', __FILE__ )
+		, array( 'jquery-ui-dialog', 'jquery-ui-datepicker' )
+	);
+
+	wp_localize_script(
+		'wordpoints-reset-points-admin-screen'
+		, 'WordPointsResetPointsAdminScreenL10n'
+		, array(
+			'resetButton' => __( 'Reset', 'wordpoints-points-reset' ),
+			'cancelButton' => __( 'Cancel', 'wordpoints-points-reset' ),
+			'dialogTitle' => __( 'Are you sure?', 'wordpoints-points-reset' ),
+			'dialogTextTop' => __( 'Are you sure you want to reset this points type?', 'wordpoints-points-reset' ),
+			'dialogTextBottom' => __( 'This action cannot be undone.', 'wordpoints-points-reset' ),
+		)
+	);
 
 	include dirname( __FILE__ ) . '/admin-screen.php';
 }
