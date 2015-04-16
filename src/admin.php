@@ -96,7 +96,7 @@ function wordpoints_reset_admin_screen_process() {
 
 			$raw_date = $_POST["reset-points-type-date-{$slug}"];
 
-			if ( empty( $raw_date ) && ! empty( $points_type ) ) {
+			if ( empty( $raw_date ) && ! empty( $points_type['reset_date'] ) ) {
 
 				unset( $points_type['reset_date'] );
 
