@@ -80,7 +80,7 @@ function wordpoints_reset_admin_screen_process() {
 
 		$points_type['reset_value'] = $_POST[ "reset-points-type-value-{$slug}" ];
 
-		if ( isset( $_POST["reset-points-type-{$slug}"] ) ) {
+		if ( isset( $_POST[ "reset-points-type-{$slug}" ] ) ) {
 
 			wordpoints_update_points_type( $slug, $points_type );
 
@@ -92,9 +92,9 @@ function wordpoints_reset_admin_screen_process() {
 
 			break;
 
-		} elseif ( isset( $_POST["reset-points-type-date-set-{$slug}"], $_POST["reset-points-type-date-{$slug}"] ) ) {
+		} elseif ( isset( $_POST[ "reset-points-type-date-set-{$slug}" ], $_POST[ "reset-points-type-date-{$slug}" ] ) ) {
 
-			$raw_date = $_POST["reset-points-type-date-{$slug}"];
+			$raw_date = $_POST[ "reset-points-type-date-{$slug}" ];
 
 			if ( empty( $raw_date ) && ! empty( $points_type['reset_date'] ) ) {
 
@@ -116,7 +116,7 @@ function wordpoints_reset_admin_screen_process() {
 					break;
 				}
 
-				if ( $date && $raw_date === date( 'Y-m-d', $date ) && $date > $now ) {
+				if ( $date && date( 'Y-m-d', $date ) === $raw_date && $date > $now ) {
 
 					$points_type['reset_date'] = $date;
 

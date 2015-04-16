@@ -7,23 +7,25 @@
  * @since 1.0.0
  */
 
-$points_types = wordpoints_get_points_types();
-
 ?>
 
 <div class="wrap">
-	<h2><?php _e( 'Reset Points', 'wordpoints-points-reset' ); ?></h2>
+	<h2><?php esc_html_e( 'Reset Points', 'wordpoints-points-reset' ); ?></h2>
 
-	<?php if ( ! $points_types ) : ?>
+	<?php if ( ! wordpoints_get_points_types() ) : ?>
 		<?php wordpoints_show_admin_error( __( 'You need to create a points type before you can reset points.', 'wordpoints-points-reset' ) ); ?>
 	<?php else : ?>
-		<?php wordpoints_reset_admin_screen_process(); ?>
+		<?php
+
+		wordpoints_reset_admin_screen_process();
+
+		?>
 		<form id="reset-points-type" method="POST">
 			<table class="widefat">
 				<tbody>
-					<?php foreach ( $points_types as $slug => $points_type ) : ?>
+					<?php foreach ( wordpoints_get_points_types() as $slug => $points_type ) : ?>
 						<tr>
-							<th><?php echo $points_type['name']; ?></th>
+							<th><?php echo esc_html( $points_type['name'] ); ?></th>
 							<td>
 								<label for="reset-points-type-value-<?php echo esc_attr( $slug ); ?>">
 									<?php esc_html_e( 'Reset Value:', 'wordpoints-points-reset' ); ?>
@@ -37,13 +39,13 @@ $points_types = wordpoints_get_points_types();
 							</td>
 							<td><?php submit_button( __( 'Reset Now', 'wordpoints-points-reset' ), 'delete', "reset-points-type-{$slug}", false ); ?></td>
 							<td>
-								<label for="reset-points-type-date-<?php echo $slug; ?>">
-									<?php _e( 'Reset on date:', 'wordpoints-points-reset' ); ?>
+								<label for="reset-points-type-date-<?php echo esc_attr( $slug ); ?>">
+									<?php esc_html_e( 'Reset on date:', 'wordpoints-points-reset' ); ?>
 									<input
 										type="date"
-										id="reset-points-type-date-<?php echo $slug; ?>"
-										name="reset-points-type-date-<?php echo $slug; ?>"
-										value="<?php echo ( ! empty( $points_type['reset_date'] ) ) ? date( 'Y-m-d', $points_type['reset_date'] ) : ''; ?>"
+										id="reset-points-type-date-<?php echo esc_attr( $slug ); ?>"
+										name="reset-points-type-date-<?php echo esc_attr( $slug ); ?>"
+										value="<?php echo ( ! empty( $points_type['reset_date'] ) ) ? esc_html( date( 'Y-m-d', $points_type['reset_date'] ) ) : ''; ?>"
 									/>
 								</label>
 								<?php submit_button( __( 'Set Date', 'wordpoints-points-reset' ), 'secondary', "reset-points-type-date-set-{$slug}", false ); ?>
@@ -67,10 +69,10 @@ $points_types = wordpoints_get_points_types();
 					event.preventDefault();
 
 					$(
-						'<div title="<?php _e( 'Are you sure?', 'wordpoints-points-reset' ); ?>">'
-							+ '<p><?php _e( 'Are you sure you want to reset this points type?', 'wordpoints-points-reset' ); ?></p>'
+						'<div title="<?php esc_attr_e( 'Are you sure?', 'wordpoints-points-reset' ); ?>">'
+							+ '<p><?php esc_html_e( 'Are you sure you want to reset this points type?', 'wordpoints-points-reset' ); ?></p>'
 							+ '<p><strong>' + $currentDelete.closest( 'tr' ).find( 'th' ).text() + ': ' + $currentDelete.closest( 'tr' ).find( 'input[type=number]' ).val() + '</strong></p>'
-							+ '<p><?php _e( 'This action cannot be undone.', 'wordpoints-points-reset' ); ?></p>'
+							+ '<p><?php esc_html_e( 'This action cannot be undone.', 'wordpoints-points-reset' ); ?></p>'
 						+ '</div>'
 
 					).dialog({
@@ -81,7 +83,7 @@ $points_types = wordpoints_get_points_types();
 						modal: true,
 						buttons: [
 							{
-								text: '<?php _e( 'Reset', 'wordpoints-points-reset' ); ?>',
+								text: '<?php echo esc_js( __( 'Reset', 'wordpoints-points-reset' ) ); ?>',
 								class: 'button-primary',
 								click: function() {
 									$( this ).dialog( 'close' );
@@ -90,7 +92,7 @@ $points_types = wordpoints_get_points_types();
 								}
 							},
 							{
-								text: '<?php _e( 'Cancel', 'wordpoints-points-reset' ); ?>',
+								text: '<?php  echo esc_js( __( 'Cancel', 'wordpoints-points-reset' ) ); ?>',
 								class: 'button-secondary',
 								click: function() {
 									$( this ).dialog( 'close' );
