@@ -7,9 +7,11 @@
 /* global WordPointsResetPointsAdminScreenL10n, jQuery */
 
 jQuery( document ).ready( function( $ ) {
-	var $currentDelete = false, $resetForm = $( '#reset-points-type' );
+	var $currentDelete = false,
+		$resetForm = $( '#reset-points-type'),
+		$dialogTemplate;
 
-	$resetForm.( 'input[type=date]' ).datepicker( { dateFormat: 'yy-mm-dd' } );
+	$resetForm.find( 'input[type=date]' ).datepicker( { dateFormat: 'yy-mm-dd' } );
 	$resetForm.find( '.delete' ).click( function( event ) {
 		if ( $currentDelete === false ) {
 
@@ -17,14 +19,25 @@ jQuery( document ).ready( function( $ ) {
 
 			event.preventDefault();
 
-			$(
-				'<div title="' + WordPointsResetPointsAdminScreenL10n.dialogTitle + '">'
-				+ '<p>' + WordPointsResetPointsAdminScreenL10n.dialogTextTop + '</p>'
-				+ '<p><strong>' + $currentDelete.closest( 'tr' ).find( 'th' ).text() + ': ' + $currentDelete.closest( 'tr' ).find( 'input[type=number]' ).val() + '</strong></p>'
-					+ '<p>' + WordPointsResetPointsAdminScreenL10n.dialogTextBottom + '</p>'
-				+ '</div>'
+			if ( ! $dialogTemplate ) {
+				$dialogTemplate = $( '<div />' )
+					.attr( 'title', WordPointsResetPointsAdminScreenL10n.dialogTitle );
+				$( '<p />' )
+					.text( WordPointsResetPointsAdminScreenL10n.dialogTextTop )
+					.appendTo( $dialogTemplate );
+				$( '<p />' )
+					.append( $( '<strong />' ) )
+					.appendTo( $dialogTemplate );
+				$( '<p />' )
+					.text( WordPointsResetPointsAdminScreenL10n.dialogTextBottom )
+					.appendTo( $dialogTemplate );
+			}
 
-			).dialog({
+			$dialogTemplate.find( 'p strong' ).text(
+				$currentDelete.closest( 'tr' ).find( 'th' ).text() + ': ' + $currentDelete.closest( 'tr' ).find( 'input[type=number]' ).val()
+			);
+
+			$dialogTemplate.dialog({
 				dialogClass: 'wp-dialog wordpoints-points-reset-dialog',
 				resizable: false,
 				draggable: false,
