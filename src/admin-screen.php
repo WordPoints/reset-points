@@ -37,7 +37,6 @@
 									value="<?php echo ( ! empty( $points_type['reset_value'] ) ) ? (int) $points_type['reset_value'] : 0; ?>"
 								/>
 							</td>
-							<td><?php submit_button( __( 'Reset Now', 'wordpoints-points-reset' ), 'delete', "reset-points-type-{$slug}", false ); ?></td>
 							<td>
 								<label for="reset-points-type-date-<?php echo esc_attr( $slug ); ?>">
 									<?php esc_html_e( 'Reset on date:', 'wordpoints-points-reset' ); ?>
@@ -50,6 +49,7 @@
 								</label>
 								<?php submit_button( __( 'Set Date', 'wordpoints-points-reset' ), 'secondary', "reset-points-type-date-set-{$slug}", false ); ?>
 							</td>
+							<td><?php submit_button( __( 'Reset Now', 'wordpoints-points-reset' ), 'delete', "reset-points-type-{$slug}", false ); ?></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
