@@ -7,10 +7,10 @@
 /* global WordPointsResetPointsAdminScreenL10n, jQuery */
 
 jQuery( document ).ready( function( $ ) {
-	var $currentDelete = false;
+	var $currentDelete = false, $resetForm = $( '#reset-points-type' );
 
-	$( '#reset-points-type input[type=date]' ).datepicker( { dateFormat: 'yy-mm-dd' } );
-	$( '#reset-points-type .delete' ).click( function( event ) {
+	$resetForm.( 'input[type=date]' ).datepicker( { dateFormat: 'yy-mm-dd' } );
+	$resetForm.find( '.delete' ).click( function( event ) {
 		if ( $currentDelete === false ) {
 
 			$currentDelete = $( this );
