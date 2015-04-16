@@ -7,14 +7,12 @@
  * @since 1.0.0
  */
 
-$points_types = wordpoints_get_points_types();
-
 ?>
 
 <div class="wrap">
 	<h2><?php esc_html_e( 'Reset Points', 'wordpoints-points-reset' ); ?></h2>
 
-	<?php if ( ! $points_types ) : ?>
+	<?php if ( ! wordpoints_get_points_types() ) : ?>
 		<?php wordpoints_show_admin_error( __( 'You need to create a points type before you can reset points.', 'wordpoints-points-reset' ) ); ?>
 	<?php else : ?>
 		<?php
@@ -25,7 +23,7 @@ $points_types = wordpoints_get_points_types();
 		<form id="reset-points-type" method="POST">
 			<table class="widefat">
 				<tbody>
-					<?php foreach ( $points_types as $slug => $points_type ) : ?>
+					<?php foreach ( wordpoints_get_points_types() as $slug => $points_type ) : ?>
 						<tr>
 							<th><?php echo esc_html( $points_type['name'] ); ?></th>
 							<td>
