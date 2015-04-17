@@ -1,0 +1,20 @@
+{
+    "files": {
+        "\/admin-screen.php": {
+            "size": 2342,
+            "hash": "4babba6577c7fba6d784c148075dcf90",
+            "errors": false
+        },
+        "\/admin.php": {
+            "size": 5806,
+            "hash": "115b41ac2f9b401ea3d8b5346f8b2909",
+            "errors": false
+        },
+        "\/reset-points.php": {
+            "size": 3261,
+            "hash": "43a6b43a76e2758fb7c29642925c5d5e",
+            "errors": false
+        }
+    },
+    "config_signature": "e8e4a494304ddd90ea55ccc6b594d984"
+}

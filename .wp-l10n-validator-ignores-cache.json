@@ -1,0 +1,30 @@
+{
+    "\/admin-screen.php": {
+        "\"\n\t\t\t\t\t\t\t\t\tname=\"reset-points-type-value-": {
+            "40": false
+        },
+        "\"\n\t\t\t\t\t\t\t\t\t\tname=\"reset-points-type-date-": {
+            "50": false
+        },
+        "Y-m-d": {
+            "52": {
+                "name": "date",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
+                "parentheses": 1
+            }
+        }
+    },
+    "\/admin.php": {
+        "-": {
+            "85": {
+                "name": "strpos",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 1,
+                "parentheses": 1
+            }
+        }
+    }
+}
