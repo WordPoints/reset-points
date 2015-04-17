@@ -22,7 +22,7 @@
 		?>
 
 		<p>
-			<?php esc_html_e( 'Reset all users&#8217; points to a certain value, either right now or on a future date.', 'wordpoints-reset-points' ); ?>
+			<?php esc_html_e( 'Reset all users&#8217; points to a certain value, either right now or on a future date.', 'wordpoints-points-reset' ); ?>
 		</p>
 
 		<form id="reset-points-type" method="POST">

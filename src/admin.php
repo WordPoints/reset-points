@@ -19,8 +19,8 @@ function wordpoints_reset_points_admin_menu() {
 
 	add_submenu_page(
 		'wordpoints_configure'
-		,__( 'WordPoints - Reset Points', 'wordpoints' )
-		,__( 'Reset Points', 'wordpoints' )
+		,__( 'WordPoints — Reset Points', 'wordpoints-points-reset' )
+		,__( 'Reset Points', 'wordpoints-points-reset' )
 		,'set_wordpoints_points'
 		,'wordpoints_reset_points'
 		,'wordpoints_reset_points_admin_screen'
