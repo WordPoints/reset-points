@@ -10,6 +10,8 @@
  * Description: Reset your users points on demand or automatically on a scheduled date.
  * Channel:     wordpoints.org
  * ID:          540
+ * Text Domain: wordpoints-points-reset
+ * Domain Path: /languages
  *
  * ---------------------------------------------------------------------------------|
  * Copyright 2013-2015  J.D. Grimes  (email : jdg@codesymphony.co)
@@ -37,6 +39,19 @@
 if ( is_admin() ) {
 	include dirname( __FILE__ ) . '/admin.php';
 }
+/**
+ * Load the module's text domain.
+ *
+ * @since 1.2.0
+ */
+function wordpoints_points_reset_load_textdomain() {
+
+	wordpoints_load_module_textdomain(
+		'wordpoints-points-reset'
+		, wordpoints_module_basename( __FILE__ ) . '/languages'
+	);
+}
+add_action( 'wordpoints_modules_loaded', 'wordpoints_points_reset_load_textdomain' );
 
 /**
  * Reset all users' points of a given type.
