@@ -1,0 +1,125 @@
+# Copyright (C) 2015 J.D. Grimes
+# This file is distributed under the same license as the WordPoints Reset Points package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPoints Reset Points 1.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-17 13:00:08+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#. #-#-#-#-#  wordpoints-points-reset.pot (WordPoints Reset Points 1.2.0)  #-#-#-#-#
+#. Module Name of the module
+#: admin-screen.php:13 admin.php:23
+msgid "Reset Points"
+msgstr ""
+
+#: admin-screen.php:16
+msgid "You need to create a points type before you can reset points."
+msgstr ""
+
+#: admin-screen.php:25
+msgid ""
+"Reset all users&#8217; points to a certain value, either right now or on a "
+"future date."
+msgstr ""
+
+#: admin-screen.php:36
+msgid "Reset to value:"
+msgstr ""
+
+#: admin-screen.php:47
+msgid "Reset on date:"
+msgstr ""
+
+#: admin-screen.php:55
+msgid "Set Date"
+msgstr ""
+
+#: admin-screen.php:57
+msgid "Reset Now"
+msgstr ""
+
+#: admin.php:22
+msgid "WordPoints — Reset Points"
+msgstr ""
+
+#: admin.php:55
+msgid "Reset"
+msgstr ""
+
+#: admin.php:56
+msgid "Cancel"
+msgstr ""
+
+#: admin.php:57
+msgid "Are you sure?"
+msgstr ""
+
+#: admin.php:58
+msgid "Are you sure you want to reset this points type?"
+msgstr ""
+
+#: admin.php:59
+msgid "This action cannot be undone."
+msgstr ""
+
+#: admin.php:110
+msgid "Are you sure you want to do this? Please try again."
+msgstr ""
+
+#: admin.php:122 admin.php:135
+msgid ""
+"There was an error resetting the points type &#8220;%s&#8221;. Please try "
+"again."
+msgstr ""
+
+#: admin.php:133
+msgid "The points type &#8220;%s&#8221; was reset successfully."
+msgstr ""
+
+#: admin.php:149
+msgid ""
+"The points type &#8220;%s&#8221; is no longer scheduled for an automatic "
+"reset."
+msgstr ""
+
+#: admin.php:151
+msgid ""
+"There was an error clearing the reset date for the points type &#8220;"
+"%s&#8221;. Please try again."
+msgstr ""
+
+#: admin.php:169
+msgid "The points type &#8220;%s&#8221; will automatically be reset on %s."
+msgstr ""
+
+#: admin.php:171
+msgid ""
+"There was an error setting the reset date for the points type &#8220;"
+"%s&#8221;. Please try again."
+msgstr ""
+
+#: admin.php:175
+msgid "Please enter a valid future date."
+msgstr ""
+
+#. Description of the module
+msgid "Reset your users points on demand or automatically on a scheduled date."
+msgstr ""
+
+#. Author of the module
+msgid "J.D. Grimes"
+msgstr ""
+
+#. Author URI of the module
+msgid "http://codesymphony.co/"
+msgstr ""
+
+#. Module URI of the module
+msgid "http://wordpoints.org/modules/reset-points/"
+msgstr ""
