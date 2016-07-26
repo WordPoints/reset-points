@@ -106,7 +106,7 @@ function wordpoints_reset_admin_screen_process() {
 		return;
 	}
 
-	if ( ! wp_verify_nonce( $_POST['_wpnonce'], 'wordpoints-reset-points' ) ) {
+	if ( ! wordpoints_verify_nonce( '_wpnonce', 'wordpoints-reset-points', null, 'post' ) ) {
 		wordpoints_show_admin_error( __( 'Are you sure you want to do this? Please try again.', 'wordpoints-points-reset' ) );
 		return;
 	}
@@ -123,7 +123,7 @@ function wordpoints_reset_admin_screen_process() {
 			return;
 		}
 
-		$points_type['reset_value'] = $_POST[ "reset-points-type-value-{$slug}" ];
+		$points_type['reset_value'] = (int) $_POST[ "reset-points-type-value-{$slug}" ];
 
 		if ( isset( $_POST[ "reset-points-type-{$slug}" ] ) ) {
 
@@ -139,7 +139,7 @@ function wordpoints_reset_admin_screen_process() {
 
 		} elseif ( isset( $_POST[ "reset-points-type-date-set-{$slug}" ], $_POST[ "reset-points-type-date-{$slug}" ] ) ) {
 
-			$raw_date = $_POST[ "reset-points-type-date-{$slug}" ];
+			$raw_date = sanitize_text_field( wp_unslash( $_POST[ "reset-points-type-date-{$slug}" ] ) );
 
 			if ( empty( $raw_date ) && ! empty( $points_type['reset_date'] ) ) {
 

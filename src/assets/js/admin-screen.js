@@ -49,7 +49,7 @@ jQuery( document ).ready( function( $ ) {
 				buttons: [
 					{
 						text: WordPointsResetPointsAdminScreenL10n.resetButton,
-						class: 'button-primary',
+						'class': 'button-primary',
 						click: function() {
 							$( this ).dialog( 'close' );
 							$currentDelete.click();
@@ -58,7 +58,7 @@ jQuery( document ).ready( function( $ ) {
 					},
 					{
 						text: WordPointsResetPointsAdminScreenL10n.cancelButton,
-						class: 'button-secondary',
+						'class': 'button-secondary',
 						click: function() {
 							$( this ).dialog( 'close' );
 							$currentDelete = false;
