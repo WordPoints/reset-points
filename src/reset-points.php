@@ -39,6 +39,7 @@
 if ( is_admin() ) {
 	include dirname( __FILE__ ) . '/admin.php';
 }
+
 /**
  * Load the module's text domain.
  *
