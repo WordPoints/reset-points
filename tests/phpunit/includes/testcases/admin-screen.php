@@ -43,27 +43,6 @@ abstract class WordPoints_Reset_Points_Admin_Screen_UnitTestCase
 		$_POST['_wpnonce'] = wp_create_nonce( 'wordpoints-reset-points' );
 		$_POST['reset-points-type-value-points'] = 0;
 	}
-
-	/**
-	 * Assert that an HTML string contains an admin notice.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @param string $type The type of notice that is expected.
-	 * @param string $html The string of HTML to search for the notice in.
-	 */
-	public function assertWPAdminNotice( $type, $html ) {
-
-		$this->assertNotEmpty( $html );
-
-		$document = new DOMDocument;
-		$document->loadHTML( $html );
-		$xpath = new DOMXPath( $document );
-		$this->assertEquals(
-			1
-			, $xpath->query( '//div[@id = "message" and @class = "' . $type . '"]' )->length
-		);
-	}
 }
 
 // EOF

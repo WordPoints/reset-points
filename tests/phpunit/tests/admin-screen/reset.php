@@ -50,7 +50,7 @@ class WordPoints_Reset_Admin_Screen_Reset_Test
 		wordpoints_reset_admin_screen_process();
 		$notices = ob_get_clean();
 
-		$this->assertWPAdminNotice( 'updated', $notices );
+		$this->assertWordPointsAdminNotice( $notices );
 
 		$this->assertEquals(
 			0
@@ -136,7 +136,7 @@ class WordPoints_Reset_Admin_Screen_Reset_Test
 		wordpoints_reset_admin_screen_process();
 		$notices = ob_get_clean();
 
-		$this->assertWPAdminNotice( 'error', $notices );
+		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'error' ) );
 
 		$this->assertEquals( 100, wordpoints_get_points( $this->user_ids[0], 'points' ) );
 		$this->assertEquals( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
