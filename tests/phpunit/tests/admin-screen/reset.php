@@ -50,7 +50,7 @@ class WordPoints_Reset_Admin_Screen_Reset_Test
 		wordpoints_reset_admin_screen_process();
 		$notices = ob_get_clean();
 
-		$this->assertWordPointsAdminNotice( $notices );
+		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'success' ) );
 
 		$this->assertEquals(
 			0
