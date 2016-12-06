@@ -60,36 +60,6 @@ function wordpoints_reset_points_admin_screen() {
 		)
 	);
 
-	$locale = str_replace( '_', '-', get_locale() );
-
-	switch ( $locale ) {
-		case 'ar-DZ':
-		case 'cy-GB':
-		case 'en-AU':
-		case 'en-GB':
-		case 'en-NZ':
-		case 'fr-CA':
-		case 'fr-CH':
-		case 'it-CH':
-		case 'nl-BE':
-		case 'pt-BR':
-		case 'sr-SR':
-		case 'zh-CN':
-		case 'zh-HK':
-		case 'zh-TW':
-			// These locales are supported.
-			break;
-
-		default:
-			// For all other locales we need to ignore the regional part (fr-FR -> fr).
-			$locale = substr( $locale, 0, strpos( $locale, '-' ) );
-	}
-
-	// English is the default locale.
-	if ( 'en' !== $locale ) {
-		wp_enqueue_script( 'jquery-ui-i18n-' . $locale, 'https://jquery-ui.googlecode.com/svn/tags/latest/ui/i18n/jquery.ui.datepicker-' . $locale . '.js', array( 'jquery-ui-datepicker' ) );
-	}
-
 	include dirname( __FILE__ ) . '/admin-screen.php';
 }
 
