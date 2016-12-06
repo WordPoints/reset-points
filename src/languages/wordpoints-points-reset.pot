@@ -117,9 +117,9 @@ msgid "J.D. Grimes"
 msgstr ""
 
 #. Author URI of the module
-msgid "http://codesymphony.co/"
+msgid "https://codesymphony.co/"
 msgstr ""
 
 #. Module URI of the module
-msgid "http://wordpoints.org/modules/reset-points/"
+msgid "https://wordpoints.org/modules/reset-points/"
 msgstr ""

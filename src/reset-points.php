@@ -2,9 +2,9 @@
 
 /**
  * Module Name: Reset Points
- * Module URI:  http://wordpoints.org/modules/reset-points/
+ * Module URI:  https://wordpoints.org/modules/reset-points/
  * Author:      J.D. Grimes
- * Author URI:  http://codesymphony.co/
+ * Author URI:  https://codesymphony.co/
  * Version:     1.2.0
  * License:     GPLv2+
  * Description: Reset your users points on demand or automatically on a scheduled date.

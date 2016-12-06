@@ -87,7 +87,7 @@ function wordpoints_reset_points_admin_screen() {
 
 	// English is the default locale.
 	if ( 'en' !== $locale ) {
-		wp_enqueue_script( 'jquery-ui-i18n-' . $locale, 'http://jquery-ui.googlecode.com/svn/tags/latest/ui/i18n/jquery.ui.datepicker-' . $locale . '.js', array( 'jquery-ui-datepicker' ) );
+		wp_enqueue_script( 'jquery-ui-i18n-' . $locale, 'https://jquery-ui.googlecode.com/svn/tags/latest/ui/i18n/jquery.ui.datepicker-' . $locale . '.js', array( 'jquery-ui-datepicker' ) );
 	}
 
 	include dirname( __FILE__ ) . '/admin-screen.php';
@@ -166,7 +166,7 @@ function wordpoints_reset_admin_screen_process() {
 					$points_type['reset_date'] = $date;
 
 					if ( wordpoints_update_points_type( $slug, $points_type ) ) {
-						wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; will automatically be reset on %s.', 'wordpoints-points-reset' ), $points_type['name'], $raw_date ) );
+						wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%1$s&#8221; will automatically be reset on %2$s.', 'wordpoints-points-reset' ), $points_type['name'], $raw_date ) );
 					} else {
 						wordpoints_show_admin_error( sprintf( __( 'There was an error setting the reset date for the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
 					}
@@ -177,8 +177,10 @@ function wordpoints_reset_admin_screen_process() {
 			}
 
 			break;
-		}
-	}
+
+		} // End if ( immediate reset ) elseif ( set date ).
+
+	} // End foreach ( $points_type ).
 }
 
 // EOF
