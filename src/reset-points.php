@@ -12,6 +12,7 @@
  * ID:          540
  * Text Domain: wordpoints-points-reset
  * Domain Path: /languages
+ * Namespace:   Reset_Points
  *
  * ---------------------------------------------------------------------------------|
  * Copyright 2013-2015  J.D. Grimes  (email : jdg@codesymphony.co)
