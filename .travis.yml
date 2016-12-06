@@ -10,14 +10,15 @@ php:
     - 5.5
     - 5.6
     - 7.0
+    - 7.1
 
 env:
     - TRAVISCI_RUN=codesniff
     - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=master
     - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=stable
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.5 WORDPOINTS_VERSION=master
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable
     - TRAVISCI_RUN=phpunit WP_VERSION=4.5 WORDPOINTS_VERSION=stable
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.4 WORDPOINTS_VERSION=master
     - TRAVISCI_RUN=phpunit WP_VERSION=4.4 WORDPOINTS_VERSION=stable
 
 sudo: false
@@ -42,6 +43,16 @@ matrix:
       env: TRAVISCI_RUN=codesniff
     - php: 7.0
       env: TRAVISCI_RUN=codesniff
+    - php: 7.1
+      env: TRAVISCI_RUN=codesniff
+    - php: 7.1
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master
+    - php: 7.1
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable
+    - php: 7.1
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.5 WORDPOINTS_VERSION=stable
+    - php: 7.1
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.4 WORDPOINTS_VERSION=stable
   allow_failures:
     - php: hhvm
     - php: nightly
@@ -55,7 +66,9 @@ before_script:
 
 script:
     - codesniff-php-syntax
+    - codesniff-php-autoloaders
     - codesniff-phpcs
+    - codesniff-strings
     - codesniff-jshint
     - codesniff-l10n
     - codesniff-xmllint
@@ -70,6 +83,7 @@ script:
     - phpunit-ajax
     - phpunit-ms-ajax
     - phpunit-ms-network-ajax
+    - wpcept-run
 
 after_script:
     - source $DEV_LIB_PATH/travis/after_script.sh
