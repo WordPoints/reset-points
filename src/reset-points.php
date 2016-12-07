@@ -2,19 +2,20 @@
 
 /**
  * Module Name: Reset Points
- * Module URI:  http://wordpoints.org/modules/reset-points/
+ * Module URI:  https://wordpoints.org/modules/reset-points/
  * Author:      J.D. Grimes
- * Author URI:  http://codesymphony.co/
- * Version:     1.2.0
+ * Author URI:  https://codesymphony.co/
+ * Version:     1.2.1
  * License:     GPLv2+
  * Description: Reset your users points on demand or automatically on a scheduled date.
  * Channel:     wordpoints.org
  * ID:          540
  * Text Domain: wordpoints-points-reset
  * Domain Path: /languages
+ * Namespace:   Reset_Points
  *
  * ---------------------------------------------------------------------------------|
- * Copyright 2013-2015  J.D. Grimes  (email : jdg@codesymphony.co)
+ * Copyright 2013-16  J.D. Grimes  (email : jdg@codesymphony.co)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or later, as
@@ -31,7 +32,7 @@
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_Points_Reset
- * @version 1.2.0
+ * @version 1.2.1
  * @author  J.D. Grimes <jdg@codesymphony.co>
  * @license GPLv2+
  */
@@ -39,6 +40,7 @@
 if ( is_admin() ) {
 	include dirname( __FILE__ ) . '/admin.php';
 }
+
 /**
  * Load the module's text domain.
  *

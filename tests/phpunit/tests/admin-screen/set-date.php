@@ -60,7 +60,7 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 		wordpoints_reset_admin_screen_process();
 		$notices = ob_get_clean();
 
-		$this->assertWPAdminNotice( 'updated', $notices );
+		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'success' ) );
 
 		$this->assertEquals(
 			0
@@ -162,7 +162,7 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 		wordpoints_reset_admin_screen_process();
 		$notices = ob_get_clean();
 
-		$this->assertWPAdminNotice( 'updated', $notices );
+		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'success' ) );
 
 		$this->assertEquals(
 			0
@@ -239,7 +239,7 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 		wordpoints_reset_admin_screen_process();
 		$notices = ob_get_clean();
 
-		$this->assertWPAdminNotice( 'error', $notices );
+		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'error' ) );
 
 		$this->assertNull(
 			wordpoints_get_points_type_setting( 'points', 'reset_value' )

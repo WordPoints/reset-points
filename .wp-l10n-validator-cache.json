@@ -1,20 +1,20 @@
 {
     "files": {
         "\/admin-screen.php": {
-            "size": 2342,
-            "hash": "4babba6577c7fba6d784c148075dcf90",
+            "size": 2343,
+            "hash": "6697a65d73af3d8ba835f08427b07b9f",
             "errors": false
         },
         "\/admin.php": {
-            "size": 5806,
-            "hash": "115b41ac2f9b401ea3d8b5346f8b2909",
+            "size": 5953,
+            "hash": "f2e667d9c39dc3d21e0798c78f7230b5",
             "errors": false
         },
         "\/reset-points.php": {
-            "size": 3261,
-            "hash": "43a6b43a76e2758fb7c29642925c5d5e",
+            "size": 3263,
+            "hash": "7360bc5de558cd6a677a3ae3cd082225",
             "errors": false
         }
     },
-    "config_signature": "e8e4a494304ddd90ea55ccc6b594d984"
+    "config_signature": "3097489d3082074976ca716ff5507b66"
 }

@@ -48,6 +48,7 @@ abstract class WordPoints_Reset_Points_Admin_Screen_UnitTestCase
 	 * Assert that an HTML string contains an admin notice.
 	 *
 	 * @since 1.2.0
+	 * @deprecated 1.2.1
 	 *
 	 * @param string $type The type of notice that is expected.
 	 * @param string $html The string of HTML to search for the notice in.
@@ -56,13 +57,11 @@ abstract class WordPoints_Reset_Points_Admin_Screen_UnitTestCase
 
 		$this->assertNotEmpty( $html );
 
-		$document = new DOMDocument;
-		$document->loadHTML( $html );
-		$xpath = new DOMXPath( $document );
-		$this->assertEquals(
-			1
-			, $xpath->query( '//div[@id = "message" and @class = "' . $type . '"]' )->length
-		);
+		if ( 'updated' === $type ) {
+			$type = 'success';
+		}
+
+		$this->assertWordPointsAdminNotice( $html, array( 'type' => $type ) );
 	}
 }
 
