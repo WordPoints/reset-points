@@ -6,15 +6,15 @@
             "errors": false
         },
         "\/admin.php": {
-            "size": 5953,
-            "hash": "f2e667d9c39dc3d21e0798c78f7230b5",
+            "size": 5207,
+            "hash": "04ee9e16c8e5ae3013663e4f97f80220",
             "errors": false
         },
         "\/reset-points.php": {
-            "size": 3263,
-            "hash": "7360bc5de558cd6a677a3ae3cd082225",
+            "size": 3291,
+            "hash": "a8ab0455236b587f5bf94c818410d87e",
             "errors": false
         }
     },
-    "config_signature": "3097489d3082074976ca716ff5507b66"
+    "config_signature": "51c98aab267ec2262ae0f97a8d01dac0"
 }

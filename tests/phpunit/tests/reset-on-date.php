@@ -14,7 +14,8 @@
  *
  * @covers ::wordpoints_points_reset_on_date
  */
-class WordPoints_Points_Reset_On_Date_Test extends WordPoints_Points_UnitTestCase {
+class WordPoints_Points_Reset_On_Date_Test
+	extends WordPoints_PHPUnit_TestCase_Points {
 
 	/**
 	 * The IDs of the users used in the tests.
@@ -49,7 +50,7 @@ class WordPoints_Points_Reset_On_Date_Test extends WordPoints_Points_UnitTestCas
 
 		wordpoints_delete_points_type( 'points' );
 
-		$this->assertEmpty( wordpoints_get_points_types() );
+		$this->assertSame( array(), wordpoints_get_points_types() );
 
 		wordpoints_points_reset_on_date();
 	}
@@ -81,7 +82,7 @@ class WordPoints_Points_Reset_On_Date_Test extends WordPoints_Points_UnitTestCas
 
 		$this->assert_points_not_reset();
 
-		$this->assertEquals(
+		$this->assertSame(
 			$settings['reset_date']
 			, wordpoints_get_points_type_setting( 'points', 'reset_date' )
 		);
@@ -102,7 +103,7 @@ class WordPoints_Points_Reset_On_Date_Test extends WordPoints_Points_UnitTestCas
 
 		$this->assert_points_not_reset();
 
-		$this->assertEquals(
+		$this->assertSame(
 			'invalid'
 			, wordpoints_get_points_type_setting( 'points', 'reset_date' )
 		);
@@ -140,8 +141,8 @@ class WordPoints_Points_Reset_On_Date_Test extends WordPoints_Points_UnitTestCas
 	 */
 	public function assert_points_not_reset() {
 
-		$this->assertEquals( 100, wordpoints_get_points( $this->user_ids[0], 'points' ) );
-		$this->assertEquals( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
+		$this->assertSame( 100, wordpoints_get_points( $this->user_ids[0], 'points' ) );
+		$this->assertSame( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
 	}
 
 	/**
@@ -151,8 +152,8 @@ class WordPoints_Points_Reset_On_Date_Test extends WordPoints_Points_UnitTestCas
 	 */
 	public function assert_points_reset() {
 
-		$this->assertEquals( 0, wordpoints_get_points( $this->user_ids[0], 'points' ) );
-		$this->assertEquals( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
+		$this->assertSame( 0, wordpoints_get_points( $this->user_ids[0], 'points' ) );
+		$this->assertSame( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
 	}
 }
 

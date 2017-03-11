@@ -16,10 +16,10 @@ env:
     - TRAVISCI_RUN=codesniff
     - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=master
     - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=stable
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=stable
     - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master
     - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.5 WORDPOINTS_VERSION=stable
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.4 WORDPOINTS_VERSION=stable
 
 sudo: false
 
@@ -47,12 +47,6 @@ matrix:
       env: TRAVISCI_RUN=codesniff
     - php: 7.1
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master
-    - php: 7.1
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable
-    - php: 7.1
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.5 WORDPOINTS_VERSION=stable
-    - php: 7.1
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.4 WORDPOINTS_VERSION=stable
   allow_failures:
     - php: hhvm
     - php: nightly
@@ -80,6 +74,9 @@ script:
     - phpunit-uninstall
     - phpunit-ms-uninstall
     - phpunit-ms-network-uninstall
+    - WORDPOINTS_ONLY_UNINSTALL_MODULE=1 phpunit-uninstall
+    - WORDPOINTS_ONLY_UNINSTALL_MODULE=1 phpunit-ms-uninstall
+    - WORDPOINTS_ONLY_UNINSTALL_MODULE=1 phpunit-ms-network-uninstall
     - phpunit-ajax
     - phpunit-ms-ajax
     - phpunit-ms-network-ajax

@@ -14,7 +14,7 @@
  *
  * @covers ::wordpoints_points_reset_type
  */
-class WordPoints_Points_Reset_Type extends WordPoints_Points_UnitTestCase {
+class WordPoints_Points_Reset_Type extends WordPoints_PHPUnit_TestCase_Points {
 
 	/**
 	 * Holds an arbitrary value to use with the return_() method.
@@ -61,8 +61,8 @@ class WordPoints_Points_Reset_Type extends WordPoints_Points_UnitTestCase {
 
 		$this->assertTrue( wordpoints_points_reset_type( 'points' ) );
 
-		$this->assertEquals( 0, wordpoints_get_points( $user_id, 'points' ) );
-		$this->assertEquals( 0, wordpoints_get_points( $user_id_2, 'points' ) );
+		$this->assertSame( 0, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 0, wordpoints_get_points( $user_id_2, 'points' ) );
 	}
 
 	/**
@@ -83,8 +83,8 @@ class WordPoints_Points_Reset_Type extends WordPoints_Points_UnitTestCase {
 
 		$this->assertTrue( wordpoints_points_reset_type( 'points' ) );
 
-		$this->assertEquals( 50, wordpoints_get_points( $user_id, 'points' ) );
-		$this->assertEquals( 50, wordpoints_get_points( $user_id_2, 'points' ) );
+		$this->assertSame( 50, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 50, wordpoints_get_points( $user_id_2, 'points' ) );
 	}
 
 	/**
@@ -108,8 +108,8 @@ class WordPoints_Points_Reset_Type extends WordPoints_Points_UnitTestCase {
 
 		$this->assertTrue( wordpoints_points_reset_type( 'points' ) );
 
-		$this->assertEquals( -50, wordpoints_get_points( $user_id, 'points' ) );
-		$this->assertEquals( -50, wordpoints_get_points( $user_id_2, 'points' ) );
+		$this->assertSame( -50, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( -50, wordpoints_get_points( $user_id_2, 'points' ) );
 	}
 
 	//

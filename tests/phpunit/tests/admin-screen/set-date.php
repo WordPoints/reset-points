@@ -62,12 +62,12 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 
 		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'success' ) );
 
-		$this->assertEquals(
+		$this->assertSame(
 			0
 			, wordpoints_get_points_type_setting( 'points', 'reset_value' )
 		);
 
-		$this->assertEquals(
+		$this->assertSame(
 			$this->time
 			, wordpoints_get_points_type_setting( 'points', 'reset_date' )
 		);
@@ -164,7 +164,7 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 
 		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'success' ) );
 
-		$this->assertEquals(
+		$this->assertSame(
 			0
 			, wordpoints_get_points_type_setting( 'points', 'reset_value' )
 		);
@@ -264,14 +264,14 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 		wordpoints_reset_admin_screen_process();
 		$notices = ob_get_clean();
 
-		$this->assertEmpty( $notices );
+		$this->assertSame( '', $notices );
 
-		$this->assertEquals(
+		$this->assertSame(
 			$reset_value
 			, wordpoints_get_points_type_setting( 'points', 'reset_value' )
 		);
 
-		$this->assertEquals(
+		$this->assertSame(
 			$reset_date
 			, wordpoints_get_points_type_setting( 'points', 'reset_date' )
 		);
