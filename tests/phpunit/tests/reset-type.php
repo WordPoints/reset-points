@@ -112,6 +112,29 @@ class WordPoints_Points_Reset_Type extends WordPoints_PHPUnit_TestCase_Points {
 		$this->assertSame( -50, wordpoints_get_points( $user_id_2, 'points' ) );
 	}
 
+	/**
+	 * Tests that it calls the expected actions.
+	 *
+	 * @since 1.3.0
+	 */
+	public function test_calls_actions() {
+
+		$settings = wordpoints_get_points_type( 'points' );
+		$settings['reset_value'] = 0;
+		wordpoints_update_points_type( 'points', $settings );
+
+		$reset = new WordPoints_PHPUnit_Mock_Filter();
+		$reset->add_action( 'wordpoints_points_reset', 10, 6 );
+
+		$before = new WordPoints_PHPUnit_Mock_Filter();
+		$before->add_action( 'wordpoints_points_reset_before', 10, 6 );
+
+		$this->assertTrue( wordpoints_points_reset_type( 'points' ) );
+
+		$this->assertSame( array( array( 'points', 0 ) ), $before->calls );
+		$this->assertSame( array( array( 'points', 0 ) ), $reset->calls );
+	}
+
 	//
 	// Helpers.
 	//

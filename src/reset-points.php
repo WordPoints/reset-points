@@ -78,11 +78,31 @@ function wordpoints_points_reset_type( $points_type ) {
 		return false;
 	}
 
+	/**
+	 * Fires before all users' points are reset.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string $points_type The type of points being reset.
+	 * @param int    $reset_value The value that the user points are being reset to.
+	 */
+	do_action( 'wordpoints_points_reset_before', $points_type, $reset_value );
+
 	$user_ids = get_users( array( 'fields' => 'ids' ) );
 
 	foreach ( $user_ids as $user_id ) {
 		update_user_meta( $user_id, $meta_key, $reset_value );
 	}
+
+	/**
+	 * Fires after all users' points are reset.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string $points_type The type of points being reset.
+	 * @param int    $reset_value The value that the user points are being reset to.
+	 */
+	do_action( 'wordpoints_points_reset', $points_type, $reset_value );
 
 	return true;
 }
