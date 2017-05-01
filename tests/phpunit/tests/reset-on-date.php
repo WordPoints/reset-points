@@ -1,20 +1,20 @@
 <?php
 
 /**
- * Test case for the wordpoints_points_reset_on_date() function.
+ * Test case for the wordpoints_reset_points_on_date() function.
  *
  * @package WordPoints_Reset_Points
  * @since 1.2.0
  */
 
 /**
- * Tests for wordpoints_points_reset_on_date().
+ * Tests for wordpoints_reset_points_on_date().
  *
  * @since 1.2.0
  *
- * @covers ::wordpoints_points_reset_on_date
+ * @covers ::wordpoints_reset_points_on_date
  */
-class WordPoints_Points_Reset_On_Date_Test
+class WordPoints_Reset_Points_On_Date_Test
 	extends WordPoints_PHPUnit_TestCase_Points {
 
 	/**
@@ -52,7 +52,7 @@ class WordPoints_Points_Reset_On_Date_Test
 
 		$this->assertSame( array(), wordpoints_get_points_types() );
 
-		wordpoints_points_reset_on_date();
+		wordpoints_reset_points_on_date();
 	}
 
 	/**
@@ -62,7 +62,7 @@ class WordPoints_Points_Reset_On_Date_Test
 	 */
 	public function test_not_reset_if_date_not_set() {
 
-		wordpoints_points_reset_on_date();
+		wordpoints_reset_points_on_date();
 
 		$this->assert_points_not_reset();
 	}
@@ -78,7 +78,7 @@ class WordPoints_Points_Reset_On_Date_Test
 		$settings['reset_date'] = current_time( 'timestamp' ) + 5;
 		wordpoints_update_points_type( 'points', $settings );
 
-		wordpoints_points_reset_on_date();
+		wordpoints_reset_points_on_date();
 
 		$this->assert_points_not_reset();
 
@@ -99,7 +99,7 @@ class WordPoints_Points_Reset_On_Date_Test
 		$settings['reset_date'] = 'invalid';
 		wordpoints_update_points_type( 'points', $settings );
 
-		wordpoints_points_reset_on_date();
+		wordpoints_reset_points_on_date();
 
 		$this->assert_points_not_reset();
 
@@ -120,7 +120,7 @@ class WordPoints_Points_Reset_On_Date_Test
 		$settings['reset_date'] = current_time( 'timestamp' ) - 5;
 		wordpoints_update_points_type( 'points', $settings );
 
-		wordpoints_points_reset_on_date();
+		wordpoints_reset_points_on_date();
 
 		$this->assert_points_reset();
 

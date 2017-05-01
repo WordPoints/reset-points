@@ -1,18 +1,7 @@
 <?php
 
 /**
- * Module Name: Reset Points
- * Module URI:  https://wordpoints.org/modules/reset-points/
- * Author:      J.D. Grimes
- * Author URI:  https://codesymphony.co/
- * Version:     1.2.1
- * License:     GPLv2+
- * Description: Reset your users points on demand or automatically on a scheduled date.
- * Channel:     wordpoints.org
- * ID:          540
- * Text Domain: wordpoints-points-reset
- * Domain Path: /languages
- * Namespace:   Reset_Points
+ * Main file of the module.
  *
  * ---------------------------------------------------------------------------------|
  * Copyright 2013-16  J.D. Grimes  (email : jdg@codesymphony.co)
@@ -31,40 +20,52 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * ---------------------------------------------------------------------------------|
  *
- * @package WordPoints_Points_Reset
+ * @package WordPoints_Reset_Points
  * @version 1.2.1
  * @author  J.D. Grimes <jdg@codesymphony.co>
  * @license GPLv2+
  */
+
+WordPoints_Modules::register(
+	'
+		Module Name: Reset Points
+		Module URI:  https://wordpoints.org/modules/reset-points/
+		Author:      J.D. Grimes
+		Author URI:  https://codesymphony.co/
+		Version:     1.2.1
+		License:     GPLv2+
+		Description: Reset your users points on demand or automatically on a scheduled date.
+		Channel:     wordpoints.org
+		ID:          540
+		Text Domain: wordpoints-reset-points
+		Domain Path: /languages
+		Namespace:   Reset_Points
+	'
+	, __FILE__
+);
+
+/**
+ * The module's deprecated functions.
+ *
+ * @since 1.3.0
+ */
+require_once( dirname( __FILE__ ) . '/includes/deprecated.php' );
 
 if ( is_admin() ) {
 	include dirname( __FILE__ ) . '/admin.php';
 }
 
 /**
- * Load the module's text domain.
- *
- * @since 1.2.0
- */
-function wordpoints_points_reset_load_textdomain() {
-
-	wordpoints_load_module_textdomain(
-		'wordpoints-points-reset'
-		, wordpoints_module_basename( __FILE__ ) . '/languages'
-	);
-}
-add_action( 'wordpoints_modules_loaded', 'wordpoints_points_reset_load_textdomain' );
-
-/**
  * Reset all users' points of a given type.
  *
- * @since 1.0.0
+ * @since 1.0.0 As wordpoints_points_reset_type().
+ * @since 1.3.0
  *
  * @param string $points_type The type of points that should be reset.
  *
  * @return bool Whether all users' points were reset successfully.
  */
-function wordpoints_points_reset_type( $points_type ) {
+function wordpoints_reset_points_type( $points_type ) {
 
 	$meta_key = wordpoints_get_points_user_meta_key( $points_type );
 
@@ -86,7 +87,7 @@ function wordpoints_points_reset_type( $points_type ) {
 	 * @param string $points_type The type of points being reset.
 	 * @param int    $reset_value The value that the user points are being reset to.
 	 */
-	do_action( 'wordpoints_points_reset_before', $points_type, $reset_value );
+	do_action( 'wordpoints_reset_points_before', $points_type, $reset_value );
 
 	$user_ids = get_users( array( 'fields' => 'ids' ) );
 
@@ -102,7 +103,7 @@ function wordpoints_points_reset_type( $points_type ) {
 	 * @param string $points_type The type of points being reset.
 	 * @param int    $reset_value The value that the user points are being reset to.
 	 */
-	do_action( 'wordpoints_points_reset', $points_type, $reset_value );
+	do_action( 'wordpoints_reset_points', $points_type, $reset_value );
 
 	return true;
 }
@@ -110,11 +111,12 @@ function wordpoints_points_reset_type( $points_type ) {
 /**
  * Perform an automatic scheduled reset of the points.
  *
- * @since 1.0.0
+ * @since 1.0.0 As wordpoints_points_reset_on_date().
+ * @since 1.3.0
  *
- * @action init
+ * @WordPress\action init
  */
-function wordpoints_points_reset_on_date() {
+function wordpoints_reset_points_on_date() {
 
 	$points_types = wordpoints_get_points_types();
 
@@ -132,13 +134,13 @@ function wordpoints_points_reset_on_date() {
 			&& $points_type['reset_date'] <= $now
 		) {
 
-			if ( wordpoints_points_reset_type( $slug ) ) {
+			if ( wordpoints_reset_points_type( $slug ) ) {
 				unset( $points_type['reset_date'] );
 				wordpoints_update_points_type( $slug, $points_type );
 			}
 		}
 	}
 }
-add_action( 'init', 'wordpoints_points_reset_on_date' );
+add_action( 'init', 'wordpoints_reset_points_on_date' );
 
 // EOF

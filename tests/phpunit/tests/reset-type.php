@@ -1,20 +1,20 @@
 <?php
 
 /**
- * Test case for the wordpoints_points_reset_type() function.
+ * Test case for the wordpoints_reset_points_type() function.
  *
  * @package WordPoints_Reset_Points
  * @since 1.2.0
  */
 
 /**
- * Tests for the wordpoints_points_reset_type() function.
+ * Tests for the wordpoints_reset_points_type() function.
  *
  * @since 1.2.0
  *
- * @covers ::wordpoints_points_reset_type
+ * @covers ::wordpoints_reset_points_type
  */
-class WordPoints_Points_Reset_Type extends WordPoints_PHPUnit_TestCase_Points {
+class WordPoints_Reset_Points_Type extends WordPoints_PHPUnit_TestCase_Points {
 
 	/**
 	 * Holds an arbitrary value to use with the return_() method.
@@ -31,7 +31,7 @@ class WordPoints_Points_Reset_Type extends WordPoints_PHPUnit_TestCase_Points {
 	 * @since 1.2.0
 	 */
 	public function test_reset_nonexistent_point_type() {
-		$this->assertFalse( wordpoints_points_reset_type( 'nonexistent' ) );
+		$this->assertFalse( wordpoints_reset_points_type( 'nonexistent' ) );
 	}
 
 	/**
@@ -40,7 +40,7 @@ class WordPoints_Points_Reset_Type extends WordPoints_PHPUnit_TestCase_Points {
 	 * @since 1.2.0
 	 */
 	public function test_no_reset_value() {
-		$this->assertFalse( wordpoints_points_reset_type( 'points' ) );
+		$this->assertFalse( wordpoints_reset_points_type( 'points' ) );
 	}
 
 	/**
@@ -59,7 +59,7 @@ class WordPoints_Points_Reset_Type extends WordPoints_PHPUnit_TestCase_Points {
 		$settings['reset_value'] = 0;
 		wordpoints_update_points_type( 'points', $settings );
 
-		$this->assertTrue( wordpoints_points_reset_type( 'points' ) );
+		$this->assertTrue( wordpoints_reset_points_type( 'points' ) );
 
 		$this->assertSame( 0, wordpoints_get_points( $user_id, 'points' ) );
 		$this->assertSame( 0, wordpoints_get_points( $user_id_2, 'points' ) );
@@ -81,7 +81,7 @@ class WordPoints_Points_Reset_Type extends WordPoints_PHPUnit_TestCase_Points {
 		$settings['reset_value'] = 50;
 		wordpoints_update_points_type( 'points', $settings );
 
-		$this->assertTrue( wordpoints_points_reset_type( 'points' ) );
+		$this->assertTrue( wordpoints_reset_points_type( 'points' ) );
 
 		$this->assertSame( 50, wordpoints_get_points( $user_id, 'points' ) );
 		$this->assertSame( 50, wordpoints_get_points( $user_id_2, 'points' ) );
@@ -106,7 +106,7 @@ class WordPoints_Points_Reset_Type extends WordPoints_PHPUnit_TestCase_Points {
 		$this->return_ = -50;
 		add_filter( 'wordpoints_points_minimum', array( $this, 'return_' ) );
 
-		$this->assertTrue( wordpoints_points_reset_type( 'points' ) );
+		$this->assertTrue( wordpoints_reset_points_type( 'points' ) );
 
 		$this->assertSame( -50, wordpoints_get_points( $user_id, 'points' ) );
 		$this->assertSame( -50, wordpoints_get_points( $user_id_2, 'points' ) );
@@ -124,12 +124,12 @@ class WordPoints_Points_Reset_Type extends WordPoints_PHPUnit_TestCase_Points {
 		wordpoints_update_points_type( 'points', $settings );
 
 		$reset = new WordPoints_PHPUnit_Mock_Filter();
-		$reset->add_action( 'wordpoints_points_reset', 10, 6 );
+		$reset->add_action( 'wordpoints_reset_points', 10, 6 );
 
 		$before = new WordPoints_PHPUnit_Mock_Filter();
-		$before->add_action( 'wordpoints_points_reset_before', 10, 6 );
+		$before->add_action( 'wordpoints_reset_points_before', 10, 6 );
 
-		$this->assertTrue( wordpoints_points_reset_type( 'points' ) );
+		$this->assertTrue( wordpoints_reset_points_type( 'points' ) );
 
 		$this->assertSame( array( array( 'points', 0 ) ), $before->calls );
 		$this->assertSame( array( array( 'points', 0 ) ), $reset->calls );

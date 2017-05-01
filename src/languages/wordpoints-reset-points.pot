@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#. #-#-#-#-#  wordpoints-points-reset.pot (WordPoints Reset Points 1.2.1)  #-#-#-#-#
+#. #-#-#-#-#  wordpoints-reset-points.pot (WordPoints Reset Points 1.2.1)  #-#-#-#-#
 #. Module Name of the module
 #: admin-screen.php:13 admin.php:23
 msgid "Reset Points"

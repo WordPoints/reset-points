@@ -3,7 +3,7 @@
 /**
  * Administration screen code for the module.
  *
- * @package WordPoints_Points_Reset
+ * @package WordPoints_Reset_Points
  * @since 1.0.0
  */
 
@@ -19,8 +19,8 @@ function wordpoints_reset_points_admin_menu() {
 
 	add_submenu_page(
 		'wordpoints_configure'
-		,__( 'WordPoints — Reset Points', 'wordpoints-points-reset' )
-		,__( 'Reset Points', 'wordpoints-points-reset' )
+		,__( 'WordPoints — Reset Points', 'wordpoints-reset-points' )
+		,__( 'Reset Points', 'wordpoints-reset-points' )
 		,'set_wordpoints_points'
 		,'wordpoints_reset_points'
 		,'wordpoints_reset_points_admin_screen'
@@ -37,7 +37,7 @@ add_action( 'network_admin_menu', 'wordpoints_reset_points_admin_menu' );
 function wordpoints_reset_points_admin_screen() {
 
 	wp_enqueue_style(
-		'wordpoints-points-reset-jquery-ui-datepicker'
+		'wordpoints-reset-points-jquery-ui-datepicker'
 		, wordpoints_modules_url( 'assets/css/jquery-ui-datepicker.css', __FILE__ )
 		, array( 'wp-jquery-ui-dialog' )
 	);
@@ -52,11 +52,11 @@ function wordpoints_reset_points_admin_screen() {
 		'wordpoints-reset-points-admin-screen'
 		, 'WordPointsResetPointsAdminScreenL10n'
 		, array(
-			'resetButton' => __( 'Reset', 'wordpoints-points-reset' ),
-			'cancelButton' => __( 'Cancel', 'wordpoints-points-reset' ),
-			'dialogTitle' => __( 'Are you sure?', 'wordpoints-points-reset' ),
-			'dialogTextTop' => __( 'Are you sure you want to reset this points type?', 'wordpoints-points-reset' ),
-			'dialogTextBottom' => __( 'This action cannot be undone.', 'wordpoints-points-reset' ),
+			'resetButton' => __( 'Reset', 'wordpoints-reset-points' ),
+			'cancelButton' => __( 'Cancel', 'wordpoints-reset-points' ),
+			'dialogTitle' => __( 'Are you sure?', 'wordpoints-reset-points' ),
+			'dialogTextTop' => __( 'Are you sure you want to reset this points type?', 'wordpoints-reset-points' ),
+			'dialogTextBottom' => __( 'This action cannot be undone.', 'wordpoints-reset-points' ),
 		)
 	);
 
@@ -77,7 +77,7 @@ function wordpoints_reset_admin_screen_process() {
 	}
 
 	if ( ! wordpoints_verify_nonce( '_wpnonce', 'wordpoints-reset-points', null, 'post' ) ) {
-		wordpoints_show_admin_error( __( 'Are you sure you want to do this? Please try again.', 'wordpoints-points-reset' ) );
+		wordpoints_show_admin_error( __( 'Are you sure you want to do this? Please try again.', 'wordpoints-reset-points' ) );
 		return;
 	}
 
@@ -90,7 +90,7 @@ function wordpoints_reset_admin_screen_process() {
 		if ( false === wordpoints_int( $_POST[ "reset-points-type-value-{$slug}" ] ) ) {
 
 			// translators: Points type name.
-			wordpoints_show_admin_error( sprintf( __( 'There was an error resetting the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
+			wordpoints_show_admin_error( sprintf( __( 'There was an error resetting the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-reset-points' ), $points_type['name'] ) );
 			return;
 		}
 
@@ -100,12 +100,12 @@ function wordpoints_reset_admin_screen_process() {
 
 			wordpoints_update_points_type( $slug, $points_type );
 
-			if ( wordpoints_points_reset_type( $slug ) ) {
+			if ( wordpoints_reset_points_type( $slug ) ) {
 				// translators: Points type name.
-				wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; was reset successfully.', 'wordpoints-points-reset' ), $points_type['name'] ) );
+				wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; was reset successfully.', 'wordpoints-reset-points' ), $points_type['name'] ) );
 			} else {
 				// translators: Points type name.
-				wordpoints_show_admin_error( sprintf( __( 'There was an error resetting the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
+				wordpoints_show_admin_error( sprintf( __( 'There was an error resetting the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-reset-points' ), $points_type['name'] ) );
 			}
 
 			break;
@@ -120,10 +120,10 @@ function wordpoints_reset_admin_screen_process() {
 
 				if ( wordpoints_update_points_type( $slug, $points_type ) ) {
 					// translators: Points type name.
-					wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; is no longer scheduled for an automatic reset.', 'wordpoints-points-reset' ), $points_type['name'] ) );
+					wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%s&#8221; is no longer scheduled for an automatic reset.', 'wordpoints-reset-points' ), $points_type['name'] ) );
 				} else {
 					// translators: Points type name.
-					wordpoints_show_admin_error( sprintf( __( 'There was an error clearing the reset date for the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
+					wordpoints_show_admin_error( sprintf( __( 'There was an error clearing the reset date for the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-reset-points' ), $points_type['name'] ) );
 				}
 
 			} else {
@@ -142,14 +142,14 @@ function wordpoints_reset_admin_screen_process() {
 
 					if ( wordpoints_update_points_type( $slug, $points_type ) ) {
 						// translators: 1. Points type name; 2. Date.
-						wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%1$s&#8221; will automatically be reset on %2$s.', 'wordpoints-points-reset' ), $points_type['name'], $raw_date ) );
+						wordpoints_show_admin_message( sprintf( __( 'The points type &#8220;%1$s&#8221; will automatically be reset on %2$s.', 'wordpoints-reset-points' ), $points_type['name'], $raw_date ) );
 					} else {
 						// translators: Points type name.
-						wordpoints_show_admin_error( sprintf( __( 'There was an error setting the reset date for the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-points-reset' ), $points_type['name'] ) );
+						wordpoints_show_admin_error( sprintf( __( 'There was an error setting the reset date for the points type &#8220;%s&#8221;. Please try again.', 'wordpoints-reset-points' ), $points_type['name'] ) );
 					}
 
 				} else {
-					wordpoints_show_admin_error( __( 'Please enter a valid future date.', 'wordpoints-points-reset' ) );
+					wordpoints_show_admin_error( __( 'Please enter a valid future date.', 'wordpoints-reset-points' ) );
 				}
 
 			} // End if ( date being deleted ).

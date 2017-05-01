@@ -3,7 +3,7 @@
 /**
  * Un/installer class.
  *
- * @package WordPoints_Points_Reset
+ * @package WordPoints_Reset_Points
  * @since   1.3.0
  */
 
