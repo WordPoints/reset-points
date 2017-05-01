@@ -613,24 +613,28 @@
 .ui-datepicker.ui-corner-top,
 .ui-datepicker.ui-corner-left,
 .ui-datepicker.ui-corner-tl {
+	-webkit-border-top-left-radius: 0px;
 	border-top-left-radius: 0px;
 }
 .ui-datepicker.ui-corner-all,
 .ui-datepicker.ui-corner-top,
 .ui-datepicker.ui-corner-right,
 .ui-datepicker.ui-corner-tr {
+	-webkit-border-top-right-radius: 0px;
 	border-top-right-radius: 0px;
 }
 .ui-datepicker.ui-corner-all,
 .ui-datepicker.ui-corner-bottom,
 .ui-datepicker.ui-corner-left,
 .ui-datepicker.ui-corner-bl {
+	-webkit-border-bottom-left-radius: 0px;
 	border-bottom-left-radius: 0px;
 }
 .ui-datepicker.ui-corner-all,
 .ui-datepicker.ui-corner-bottom,
 .ui-datepicker.ui-corner-right,
 .ui-datepicker.ui-corner-br {
+	-webkit-border-bottom-right-radius: 0px;
 	border-bottom-right-radius: 0px;
 }
 
@@ -646,5 +650,6 @@
 	background: #aaaaaa url("../images/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
 	opacity: .3;
 	filter: Alpha(Opacity=30);
+	-webkit-border-radius: 8px;
 	border-radius: 8px;
 }

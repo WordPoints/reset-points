@@ -38,7 +38,7 @@ function wordpoints_reset_points_admin_screen() {
 
 	wp_enqueue_style(
 		'wordpoints-points-reset-jquery-ui-datepicker'
-		, wordpoints_modules_url( 'assets/css/jquery-ui-1.10.4.custom.css', __FILE__ )
+		, wordpoints_modules_url( 'assets/css/jquery-ui-datepicker.css', __FILE__ )
 		, array( 'wp-jquery-ui-dialog' )
 	);
 
