@@ -26,7 +26,7 @@
 		</p>
 
 		<form id="reset-points-type" method="POST">
-			<table class="widefat">
+			<table class="widefat striped">
 				<tbody>
 					<?php foreach ( wordpoints_get_points_types() as $slug => $points_type ) : ?>
 						<tr>
