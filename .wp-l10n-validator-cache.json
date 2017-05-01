@@ -1,20 +1,25 @@
 {
     "files": {
         "\/admin-screen.php": {
-            "size": 2343,
-            "hash": "6697a65d73af3d8ba835f08427b07b9f",
+            "size": 2351,
+            "hash": "9fad267c1a806f1a38e835eab8000d51",
             "errors": false
         },
         "\/admin.php": {
-            "size": 5207,
-            "hash": "04ee9e16c8e5ae3013663e4f97f80220",
+            "size": 5523,
+            "hash": "0842ce22f0e9d6747eb2a48eb49cfe6b",
+            "errors": false
+        },
+        "\/includes\/class-un-installer.php": {
+            "size": 1103,
+            "hash": "995998e468f94b880b3e333e08ab5f36",
             "errors": false
         },
         "\/reset-points.php": {
-            "size": 3291,
-            "hash": "a8ab0455236b587f5bf94c818410d87e",
+            "size": 3889,
+            "hash": "1731f52d8aa8ea724933cd49a1ec1ab1",
             "errors": false
         }
     },
-    "config_signature": "51c98aab267ec2262ae0f97a8d01dac0"
+    "config_signature": "b3cba1c1c7cf9a45a74a6b7fbae4f790"
 }

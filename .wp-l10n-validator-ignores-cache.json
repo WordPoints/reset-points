@@ -26,5 +26,10 @@
                 "parentheses": 1
             }
         }
+    },
+    "\/includes\/class-un-installer.php": {
+        "WordPoints_Reset_Points_Un_Installer": {
+            "68": false
+        }
     }
 }

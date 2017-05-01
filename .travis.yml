@@ -73,9 +73,6 @@ script:
     - phpunit-basic
     - phpunit-ms
     - phpunit-ms-network
-    - phpunit-uninstall
-    - phpunit-ms-uninstall
-    - phpunit-ms-network-uninstall
     - WORDPOINTS_ONLY_UNINSTALL_MODULE=1 phpunit-uninstall
     - WORDPOINTS_ONLY_UNINSTALL_MODULE=1 phpunit-ms-uninstall
     - WORDPOINTS_ONLY_UNINSTALL_MODULE=1 phpunit-ms-network-uninstall
