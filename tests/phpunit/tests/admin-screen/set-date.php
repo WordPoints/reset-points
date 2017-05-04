@@ -18,15 +18,6 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 	extends WordPoints_Reset_Points_Admin_Screen_UnitTestCase {
 
 	/**
-	 * The Y-m-d for the date used in the tests.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @var string
-	 */
-	protected $date;
-
-	/**
 	 * The timestamp for the date used in the tests.
 	 *
 	 * @since 1.2.0
@@ -42,11 +33,16 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 
 		parent::setUp();
 
-		$this->date = date( 'Y-m-d', current_time( 'timestamp' ) + WEEK_IN_SECONDS );
-		$this->time = strtotime( $this->date, current_time( 'timestamp' ) );
+		$date = new DateTime(
+			'noon +1 week'
+			, wordpoints_reset_points_get_site_timezone()
+		);
+
+		$this->time = (int) $date->format( 'U' );
 
 		$_POST['reset-points-type-date-set-points'] = 'Set Date';
-		$_POST['reset-points-type-date-points'] = $this->date;
+		$_POST['reset-points-type-date-points'] = $date->format( 'Y-m-d' );
+		$_POST['reset-points-type-time-points'] = $date->format( 'H:i' );
 	}
 
 	/**
