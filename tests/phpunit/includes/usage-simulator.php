@@ -8,7 +8,7 @@
  */
 
 wordpoints_add_points_type(
-	array( 'name' => 'points', 'reset_date' => '2017-05-01' )
+	array( 'name' => 'points', 'reset_date' => time() + WEEK_IN_SECONDS )
 );
 
 // EOF
