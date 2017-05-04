@@ -72,15 +72,27 @@ class WordPoints_Reset_Points_Un_Installer extends WordPoints_Un_Installer_Base 
 	}
 
 	/**
+	 * @since 1.3.0
+	 */
+	protected function before_update() {
+
+		parent::before_update();
+
+		if ( $this->network_wide ) {
+			unset( $this->updates['1_3_0']['site'] );
+		} else {
+			unset( $this->updates['1_3_0']['network'] );
+		}
+	}
+
+	/**
 	 * Update a network to 1.3.0.
 	 *
 	 * @since 1.3.0
 	 */
 	protected function update_network_to_1_3_0() {
 
-		if ( $this->network_wide ) {
-			$this->update_points_type_settings_to_1_3_0();
-		}
+		$this->update_points_type_settings_to_1_3_0();
 	}
 
 	/**
