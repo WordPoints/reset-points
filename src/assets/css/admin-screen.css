@@ -1,0 +1,12 @@
+/**
+ * Styles for the admin screen.
+ *
+ * @package WordPoints_Reset_Points
+ * @since 1.3.0
+ */
+
+#reset-points-type input[type=time] {
+	width: 5em;
+}
+
+/* EOF */

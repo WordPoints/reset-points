@@ -4,7 +4,7 @@
  * Main file of the module.
  *
  * ---------------------------------------------------------------------------------|
- * Copyright 2013-16  J.D. Grimes  (email : jdg@codesymphony.co)
+ * Copyright 2013-17  J.D. Grimes  (email : jdg@codesymphony.co)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or later, as
@@ -21,7 +21,7 @@
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_Reset_Points
- * @version 1.2.1
+ * @version 1.3.0-alpha-1
  * @author  J.D. Grimes <jdg@codesymphony.co>
  * @license GPLv2+
  */
@@ -32,7 +32,7 @@ WordPoints_Modules::register(
 		Module URI:  https://wordpoints.org/modules/reset-points/
 		Author:      J.D. Grimes
 		Author URI:  https://codesymphony.co/
-		Version:     1.2.1
+		Version:     1.3.0-alpha-1
 		License:     GPLv2+
 		Description: Reset your users points on demand or automatically on a scheduled date.
 		Channel:     wordpoints.org

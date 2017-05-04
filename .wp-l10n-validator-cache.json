@@ -1,25 +1,35 @@
 {
     "files": {
         "\/admin-screen.php": {
-            "size": 2351,
-            "hash": "9fad267c1a806f1a38e835eab8000d51",
+            "size": 2992,
+            "hash": "11819fb864b80ccd115d1cfa93884d76",
             "errors": false
         },
         "\/admin.php": {
-            "size": 5523,
-            "hash": "0842ce22f0e9d6747eb2a48eb49cfe6b",
+            "size": 6821,
+            "hash": "0448866e81a087074168d31e154342f2",
             "errors": false
         },
         "\/includes\/class-un-installer.php": {
-            "size": 1103,
-            "hash": "995998e468f94b880b3e333e08ab5f36",
+            "size": 2267,
+            "hash": "3389b22d826f8c8eb3f245b320b9a895",
+            "errors": false
+        },
+        "\/includes\/deprecated.php": {
+            "size": 1244,
+            "hash": "dac9b2957b619125a89af4c125d14f9c",
+            "errors": false
+        },
+        "\/includes\/functions.php": {
+            "size": 3944,
+            "hash": "824b68ebe6a85eb1330ee866aaa799d8",
             "errors": false
         },
         "\/reset-points.php": {
-            "size": 3889,
-            "hash": "1731f52d8aa8ea724933cd49a1ec1ab1",
+            "size": 1896,
+            "hash": "2ed36476bd1a2a649b3e3a1ea22e25ec",
             "errors": false
         }
     },
-    "config_signature": "b3cba1c1c7cf9a45a74a6b7fbae4f790"
+    "config_signature": "1820862500630f9c17d5f8430075ec28"
 }

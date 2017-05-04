@@ -14,22 +14,66 @@
                 "arg_count": 0,
                 "parentheses": 1
             }
+        },
+        "\"\n\t\t\t\t\t\t\t\t\t\tid=\"reset-points-type-time-": {
+            "61": false
+        },
+        "\"\n\t\t\t\t\t\t\t\t\t\tname=\"reset-points-type-time-": {
+            "62": false
+        },
+        "H:i": {
+            "64": {
+                "name": "date",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
+                "parentheses": 1
+            }
+        },
+        "00:00": {
+            "64": false
         }
     },
     "\/admin.php": {
-        "-": {
-            "85": {
-                "name": "strpos",
+        ":00": {
+            "170": false
+        },
+        "U": {
+            "180": {
+                "name": "$date->format",
                 "type": "unknown",
                 "args_started": true,
-                "arg_count": 1,
+                "arg_count": 0,
+                "parentheses": 1
+            }
+        },
+        "Y-m-d\\TH:i": {
+            "193": {
+                "name": "$date->format",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
                 "parentheses": 1
             }
         }
     },
     "\/includes\/class-un-installer.php": {
         "WordPoints_Reset_Points_Un_Installer": {
-            "68": false
+            "127": false
+        }
+    },
+    "\/includes\/functions.php": {
+        "UTC": {
+            "124": false
+        },
+        "%+03d:%02d": {
+            "128": {
+                "name": "sprintf",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
+                "parentheses": 1
+            }
         }
     }
 }

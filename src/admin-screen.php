@@ -52,6 +52,18 @@
 										value="<?php echo ( ! empty( $points_type['reset_date'] ) ) ? esc_html( date( 'Y-m-d', $points_type['reset_date'] ) ) : ''; ?>"
 									/>
 								</label>
+								<label for="reset-points-type-time-<?php echo esc_attr( $slug ); ?>">
+									<span class="screen-reader-text">
+										<?php esc_html_e( 'Time:', 'wordpoints-reset-points' ); ?>
+									</span>
+									<input
+										type="time"
+										placeholder="<?php esc_html_e( 'Time', 'wordpoints-reset-points' ); ?>"
+										id="reset-points-type-time-<?php echo esc_attr( $slug ); ?>"
+										name="reset-points-type-time-<?php echo esc_attr( $slug ); ?>"
+										value="<?php echo ( ! empty( $points_type['reset_date'] ) ) ? esc_html( date( 'H:i', $points_type['reset_date'] ) ) : '00:00'; ?>"
+									/>
+								</label>
 								<?php submit_button( __( 'Set Date', 'wordpoints-reset-points' ), 'secondary', "reset-points-type-date-set-{$slug}", false ); ?>
 							</td>
 							<td><?php submit_button( __( 'Reset Now', 'wordpoints-reset-points' ), 'delete', "reset-points-type-{$slug}", false ); ?></td>
