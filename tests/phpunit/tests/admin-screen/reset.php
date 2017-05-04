@@ -52,13 +52,13 @@ class WordPoints_Reset_Admin_Screen_Reset_Test
 
 		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'success' ) );
 
-		$this->assertEquals(
+		$this->assertSame(
 			0
 			, wordpoints_get_points_type_setting( 'points', 'reset_value' )
 		);
 
-		$this->assertEquals( 0, wordpoints_get_points( $this->user_ids[0], 'points' ) );
-		$this->assertEquals( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
+		$this->assertSame( 0, wordpoints_get_points( $this->user_ids[0], 'points' ) );
+		$this->assertSame( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
 	}
 
 	/**
@@ -138,8 +138,8 @@ class WordPoints_Reset_Admin_Screen_Reset_Test
 
 		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'error' ) );
 
-		$this->assertEquals( 100, wordpoints_get_points( $this->user_ids[0], 'points' ) );
-		$this->assertEquals( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
+		$this->assertSame( 100, wordpoints_get_points( $this->user_ids[0], 'points' ) );
+		$this->assertSame( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
 	}
 
 	/**
@@ -153,10 +153,10 @@ class WordPoints_Reset_Admin_Screen_Reset_Test
 		wordpoints_reset_admin_screen_process();
 		$notices = ob_get_clean();
 
-		$this->assertEmpty( $notices );
+		$this->assertSame( '', $notices );
 
-		$this->assertEquals( 100, wordpoints_get_points( $this->user_ids[0], 'points' ) );
-		$this->assertEquals( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
+		$this->assertSame( 100, wordpoints_get_points( $this->user_ids[0], 'points' ) );
+		$this->assertSame( 0, wordpoints_get_points( $this->user_ids[1], 'points' ) );
 	}
 }
 

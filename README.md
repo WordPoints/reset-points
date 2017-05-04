@@ -1,4 +1,4 @@
-# Reset Points
+# Reset Points [![Build Status](https://travis-ci.org/WordPoints/reset-points.svg?branch=develop)](https://travis-ci.org/WordPoints/reset-points) [![HackerOne Bug Bounty Program](https://img.shields.io/badge/security-HackerOne-blue.svg)](https://hackerone.com/wordpoints)
 
 Reset user points on demand or automatically on a scheduled date.
 

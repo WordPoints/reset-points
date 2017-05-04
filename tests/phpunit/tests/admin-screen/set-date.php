@@ -18,15 +18,6 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 	extends WordPoints_Reset_Points_Admin_Screen_UnitTestCase {
 
 	/**
-	 * The Y-m-d for the date used in the tests.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @var string
-	 */
-	protected $date;
-
-	/**
 	 * The timestamp for the date used in the tests.
 	 *
 	 * @since 1.2.0
@@ -42,11 +33,16 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 
 		parent::setUp();
 
-		$this->date = date( 'Y-m-d', current_time( 'timestamp' ) + WEEK_IN_SECONDS );
-		$this->time = strtotime( $this->date, current_time( 'timestamp' ) );
+		$date = new DateTime(
+			'noon +1 week'
+			, wordpoints_reset_points_get_site_timezone()
+		);
+
+		$this->time = (int) $date->format( 'U' );
 
 		$_POST['reset-points-type-date-set-points'] = 'Set Date';
-		$_POST['reset-points-type-date-points'] = $this->date;
+		$_POST['reset-points-type-date-points'] = $date->format( 'Y-m-d' );
+		$_POST['reset-points-type-time-points'] = $date->format( 'H:i' );
 	}
 
 	/**
@@ -62,12 +58,12 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 
 		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'success' ) );
 
-		$this->assertEquals(
+		$this->assertSame(
 			0
 			, wordpoints_get_points_type_setting( 'points', 'reset_value' )
 		);
 
-		$this->assertEquals(
+		$this->assertSame(
 			$this->time
 			, wordpoints_get_points_type_setting( 'points', 'reset_date' )
 		);
@@ -164,7 +160,7 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 
 		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'success' ) );
 
-		$this->assertEquals(
+		$this->assertSame(
 			0
 			, wordpoints_get_points_type_setting( 'points', 'reset_value' )
 		);
@@ -264,14 +260,14 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 		wordpoints_reset_admin_screen_process();
 		$notices = ob_get_clean();
 
-		$this->assertEmpty( $notices );
+		$this->assertSame( '', $notices );
 
-		$this->assertEquals(
+		$this->assertSame(
 			$reset_value
 			, wordpoints_get_points_type_setting( 'points', 'reset_value' )
 		);
 
-		$this->assertEquals(
+		$this->assertSame(
 			$reset_date
 			, wordpoints_get_points_type_setting( 'points', 'reset_date' )
 		);

@@ -1,5 +1,5 @@
 {
-	"textdomain": "wordpoints-points-reset",
+	"textdomain": "wordpoints-reset-points",
 	"basedir": "./src",
 	"bootstrap": "dev-lib/l10n-validator/bootstrap.php",
 	"cache": "./.wp-l10n-validator-cache.json",

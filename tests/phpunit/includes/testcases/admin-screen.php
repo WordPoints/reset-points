@@ -13,7 +13,7 @@
  * @since 1.2.0
  */
 abstract class WordPoints_Reset_Points_Admin_Screen_UnitTestCase
-	extends WordPoints_Points_UnitTestCase {
+	extends WordPoints_PHPUnit_TestCase_Points {
 
 	/**
 	 * @since 1.2.0

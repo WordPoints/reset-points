@@ -41,7 +41,7 @@ jQuery( document ).ready( function( $ ) {
 			);
 
 			$dialogTemplate.dialog({
-				dialogClass: 'wp-dialog wordpoints-points-reset-dialog',
+				dialogClass: 'wp-dialog wordpoints-reset-points-dialog',
 				resizable: false,
 				draggable: false,
 				height: 250,
