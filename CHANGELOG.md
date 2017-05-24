@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) 
 and [Keep a CHANGELOG](http://keepachangelog.com/).
 
+## [Unreleased]
+
+Nothing documented at this time.
+
+## [1.3.1] - 2017-05-24
+
+### Fixed
+
+- Potential errors on PHP < 5.5, from `DateTimeZone` not supporting UTC offsets. #28
+
 ## [1.3.0] - 2017-05-04
 
 ### Added
@@ -96,6 +106,7 @@ that this was exploited. #18
 - Ability points of all users to be reset to 0 on demand or on a scheduled date.
 
 [unreleased]: https://github.com/WordPoints/reset-points/compare/master...HEAD
+[1.3.1]: https://github.com/WordPoints/reset-points/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/WordPoints/reset-points/compare/1.2.1...1.3.0
 [1.2.1]: https://github.com/WordPoints/reset-points/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/WordPoints/reset-points/compare/1.1.1...1.2.0
