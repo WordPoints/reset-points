@@ -11,8 +11,8 @@
             "errors": false
         },
         "\/includes\/class-un-installer.php": {
-            "size": 2267,
-            "hash": "3389b22d826f8c8eb3f245b320b9a895",
+            "size": 2468,
+            "hash": "4b36c19b134f699e799cf55e326eb739",
             "errors": false
         },
         "\/includes\/deprecated.php": {
@@ -21,15 +21,15 @@
             "errors": false
         },
         "\/includes\/functions.php": {
-            "size": 3944,
-            "hash": "824b68ebe6a85eb1330ee866aaa799d8",
+            "size": 4109,
+            "hash": "69dc16371c6b6d8af53f9c7e4edf8f1f",
             "errors": false
         },
         "\/reset-points.php": {
-            "size": 1896,
-            "hash": "2ed36476bd1a2a649b3e3a1ea22e25ec",
+            "size": 1880,
+            "hash": "6656beb2436d3cc5176e8af420044b73",
             "errors": false
         }
     },
-    "config_signature": "1820862500630f9c17d5f8430075ec28"
+    "config_signature": "8bdac67b45eb27d18ad944716d600c92"
 }

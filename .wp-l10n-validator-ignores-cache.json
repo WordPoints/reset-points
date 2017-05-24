@@ -59,12 +59,19 @@
     },
     "\/includes\/class-un-installer.php": {
         "WordPoints_Reset_Points_Un_Installer": {
-            "127": false
+            "139": false
         }
     },
     "\/includes\/functions.php": {
         "UTC": {
-            "124": false
+            "124": false,
+            "136": {
+                "name": "DateTimeZone::__construct",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
+                "parentheses": 1
+            }
         },
         "%+03d:%02d": {
             "128": {
