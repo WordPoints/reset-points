@@ -129,7 +129,14 @@ function wordpoints_reset_points_get_site_timezone() {
 		}
 	}
 
-	return new DateTimeZone( $timezone_string );
+	// The offsets in particular do not work prior to PHP 5.5.
+	try {
+		$timezone = new DateTimeZone( $timezone_string );
+	} catch ( Exception $e ) {
+		$timezone = new DateTimeZone( 'UTC' );
+	}
+
+	return $timezone;
 }
 
 /**
