@@ -26,20 +26,20 @@
  * @license GPLv2+
  */
 
-WordPoints_Modules::register(
+wordpoints_register_extension(
 	'
-		Module Name: Reset Points
-		Module URI:  https://wordpoints.org/modules/reset-points/
-		Author:      J.D. Grimes
-		Author URI:  https://codesymphony.co/
-		Version:     1.3.1
-		License:     GPLv2+
-		Description: Reset your users points on demand or automatically on a scheduled date.
-		Channel:     wordpoints.org
-		ID:          540
-		Text Domain: wordpoints-reset-points
-		Domain Path: /languages
-		Namespace:   Reset_Points
+		Extension Name: Reset Points
+		Extension URI:  https://wordpoints.org/extensions/reset-points/
+		Author:         J.D. Grimes
+		Author URI:     https://codesymphony.co/
+		Version:        1.3.1
+		License:        GPLv2+
+		Description:    Reset your users points on demand or automatically on a scheduled date.
+		Server:         wordpoints.org
+		ID:             540
+		Text Domain:    wordpoints-reset-points
+		Domain Path:    /languages
+		Namespace:      Reset_Points
 	'
 	, __FILE__
 );
