@@ -39,7 +39,7 @@ class WordPoints_Reset_Points_Update_1_3_0_Test
 
 		update_option( 'gmt_offset', 5 );
 
-		$now = current_time( 'timestamp' );
+		$now     = current_time( 'timestamp' );
 		$now_gmt = time();
 
 		$points_type = wordpoints_get_points_type( 'points' );

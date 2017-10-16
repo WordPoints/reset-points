@@ -123,8 +123,8 @@ function wordpoints_reset_points_get_site_timezone() {
 		if ( empty( $offset ) ) {
 			$timezone_string = 'UTC';
 		} else {
-			$hours   = (int) $offset;
-			$minutes = ( $offset - floor( $offset ) ) * 60;
+			$hours           = (int) $offset;
+			$minutes         = ( $offset - floor( $offset ) ) * 60;
 			$timezone_string = sprintf( '%+03d:%02d', $hours, $minutes );
 		}
 	}

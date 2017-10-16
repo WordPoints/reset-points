@@ -25,12 +25,12 @@ abstract class WordPoints_Reset_Points_Admin_Screen_UnitTestCase
 		/**
 		 * @since 1.2.0
 		 */
-		include_once( WORDPOINTS_DIR . '/admin/admin.php' );
+		require_once WORDPOINTS_DIR . '/admin/admin.php';
 
 		/**
 		 * @since 1.2.0
 		 */
-		include_once( dirname( __FILE__ ) . '/../../../../src/admin.php' );
+		require_once dirname( __FILE__ ) . '/../../../../src/admin.php';
 	}
 
 	/**

@@ -36,7 +36,7 @@ class WordPoints_Reset_Points_On_Date_Test
 		$this->user_ids = $this->factory->user->create_many( 2 );
 		wordpoints_set_points( $this->user_ids[0], 100, 'points', 'test' );
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings                = wordpoints_get_points_type( 'points' );
 		$settings['reset_value'] = 0;
 		wordpoints_update_points_type( 'points', $settings );
 	}
@@ -74,7 +74,7 @@ class WordPoints_Reset_Points_On_Date_Test
 	 */
 	public function test_not_reset_if_date_in_future() {
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings               = wordpoints_get_points_type( 'points' );
 		$settings['reset_date'] = current_time( 'timestamp' ) + 5;
 		wordpoints_update_points_type( 'points', $settings );
 
@@ -95,7 +95,7 @@ class WordPoints_Reset_Points_On_Date_Test
 	 */
 	public function test_not_reset_if_date_invalid() {
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings               = wordpoints_get_points_type( 'points' );
 		$settings['reset_date'] = 'invalid';
 		wordpoints_update_points_type( 'points', $settings );
 
@@ -116,7 +116,7 @@ class WordPoints_Reset_Points_On_Date_Test
 	 */
 	public function test_points_reset_if_date_passed() {
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings               = wordpoints_get_points_type( 'points' );
 		$settings['reset_date'] = current_time( 'timestamp' ) - 5;
 		wordpoints_update_points_type( 'points', $settings );
 

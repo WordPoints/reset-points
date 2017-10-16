@@ -49,17 +49,22 @@ WordPoints_Modules::register(
  *
  * @since 1.3.0
  */
-require_once( dirname( __FILE__ ) . '/includes/functions.php' );
+require_once dirname( __FILE__ ) . '/includes/functions.php';
 
 /**
  * The module's deprecated functions.
  *
  * @since 1.3.0
  */
-require_once( dirname( __FILE__ ) . '/includes/deprecated.php' );
+require_once dirname( __FILE__ ) . '/includes/deprecated.php';
 
 if ( is_admin() ) {
-	include dirname( __FILE__ ) . '/admin.php';
+	/**
+	 * The extension's admin-side code.
+	 *
+	 * @since 1.0.0
+	 */
+	require_once dirname( __FILE__ ) . '/admin.php';
 }
 
 // EOF

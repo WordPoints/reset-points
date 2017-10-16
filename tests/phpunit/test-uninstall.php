@@ -11,9 +11,11 @@
  * Tests uninstalling the module.
  *
  * @since 1.3.0
+ *
+ * @covers WordPoints_Reset_Points_Un_Installer
  */
 class WordPoints_Reset_Points_Uninstall_Test
-	extends WordPoints_PHPUnit_TestCase_Module_Uninstall {
+	extends WordPoints_PHPUnit_TestCase_Extension_Uninstall {
 
 	/**
 	 * Test installation and uninstallation.

@@ -41,8 +41,8 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 		$this->time = (int) $date->format( 'U' );
 
 		$_POST['reset-points-type-date-set-points'] = 'Set Date';
-		$_POST['reset-points-type-date-points'] = $date->format( 'Y-m-d' );
-		$_POST['reset-points-type-time-points'] = $date->format( 'H:i' );
+		$_POST['reset-points-type-date-points']     = $date->format( 'Y-m-d' );
+		$_POST['reset-points-type-time-points']     = $date->format( 'H:i' );
 	}
 
 	/**
@@ -148,7 +148,7 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 	 */
 	public function test_unset_date() {
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings               = wordpoints_get_points_type( 'points' );
 		$settings['reset_date'] = $this->time + DAY_IN_SECONDS;
 		wordpoints_update_points_type( 'points', $settings );
 
@@ -177,7 +177,7 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 	 */
 	public function test_same_date() {
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings               = wordpoints_get_points_type( 'points' );
 		$settings['reset_date'] = $this->time;
 		wordpoints_update_points_type( 'points', $settings );
 
@@ -254,7 +254,7 @@ class WordPoints_Reset_Admin_Screen_Set_Date_Test
 	public function assert_nothing_happens() {
 
 		$reset_value = wordpoints_get_points_type_setting( 'points', 'reset_value' );
-		$reset_date = wordpoints_get_points_type_setting( 'points', 'reset_date' );
+		$reset_date  = wordpoints_get_points_type_setting( 'points', 'reset_date' );
 
 		ob_start();
 		wordpoints_reset_admin_screen_process();
