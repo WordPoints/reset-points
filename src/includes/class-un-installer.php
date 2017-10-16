@@ -8,7 +8,7 @@
  */
 
 /**
- * Uninstalls the module.
+ * Uninstalls the extension.
  *
  * @since 1.3.0
  */
@@ -57,7 +57,7 @@ class WordPoints_Reset_Points_Un_Installer extends WordPoints_Un_Installer_Base 
 	}
 
 	/**
-	 * Uninstalls the points type settings added by the module.
+	 * Uninstalls the points type settings added by the extension.
 	 *
 	 * @since 1.3.0
 	 */

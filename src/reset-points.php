@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Main file of the module.
+ * Main file of the extension.
  *
  * ---------------------------------------------------------------------------------|
  * Copyright 2013-17  J.D. Grimes  (email : jdg@codesymphony.co)
@@ -45,14 +45,14 @@ wordpoints_register_extension(
 );
 
 /**
- * The module's main functions.
+ * The extension's main functions.
  *
  * @since 1.3.0
  */
 require_once dirname( __FILE__ ) . '/includes/functions.php';
 
 /**
- * The module's deprecated functions.
+ * The extension's deprecated functions.
  *
  * @since 1.3.0
  */

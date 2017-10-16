@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The module's main functions.
+ * The extension's main functions.
  *
  * @package WordPoints_Reset_Points
  * @since   1.3.0

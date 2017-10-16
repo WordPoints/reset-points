@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Administration screen code for the module.
+ * Administration screen code for the extension.
  *
  * @package WordPoints_Reset_Points
  * @since 1.0.0
@@ -30,7 +30,7 @@ add_action( 'admin_menu', 'wordpoints_reset_points_admin_menu' );
 add_action( 'network_admin_menu', 'wordpoints_reset_points_admin_menu' );
 
 /**
- * Register admin scripts and styles for the module.
+ * Register admin scripts and styles for the extension.
  *
  * @since 1.0.0
  *
@@ -38,10 +38,10 @@ add_action( 'network_admin_menu', 'wordpoints_reset_points_admin_menu' );
  */
 function wordpoints_reset_points_admin_register_scripts() {
 
-	$assets_url = wordpoints_modules_url( '/assets', __FILE__ );
+	$assets_url = wordpoints_extensions_url( '/assets', __FILE__ );
 	$suffix     = SCRIPT_DEBUG ? '' : '.min';
 
-	$version = WordPoints_Modules::get_data( __FILE__, 'version' );
+	$version = wordpoints_get_extension_version( __FILE__ );
 
 	// JS.
 	wp_register_script(
@@ -72,7 +72,7 @@ function wordpoints_reset_points_admin_register_scripts() {
 add_action( 'admin_enqueue_scripts', 'wordpoints_reset_points_admin_register_scripts', 5 );
 
 /**
- * Display the module's administration screen.
+ * Display the extension's administration screen.
  *
  * @since 1.0.0
  */

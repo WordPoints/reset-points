@@ -8,7 +8,7 @@
  */
 
 /**
- * Tests uninstalling the module.
+ * Tests uninstalling the extension.
  *
  * @since 1.3.0
  *
@@ -26,7 +26,7 @@ class WordPoints_Reset_Points_Uninstall_Test
 
 		$this->uninstall();
 
-		// Check that everything with this module's prefix has been uninstalled.
+		// Check that everything with this extension's prefix has been uninstalled.
 		$this->assertUninstalledPrefix( 'wordpoints_reset_points' );
 
 		$this->assertArrayNotHasKey(

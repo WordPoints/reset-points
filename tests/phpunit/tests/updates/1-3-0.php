@@ -23,7 +23,7 @@ class WordPoints_Reset_Points_Update_1_3_0_Test
 	/**
 	 * @since 1.3.0
 	 */
-	protected $wordpoints_module = 'reset-points';
+	protected $wordpoints_extension = 'reset-points';
 
 	/**
 	 * @since 1.3.0
@@ -48,7 +48,7 @@ class WordPoints_Reset_Points_Update_1_3_0_Test
 
 		wordpoints_update_points_type( 'points', $points_type );
 
-		$this->update_module();
+		$this->update_extension();
 
 		$points_type = wordpoints_get_points_type( 'points' );
 
