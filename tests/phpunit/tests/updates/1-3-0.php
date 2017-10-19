@@ -52,7 +52,7 @@ class WordPoints_Reset_Points_Update_1_3_0_Test
 
 		$points_type = wordpoints_get_points_type( 'points' );
 
-		$this->assertSame( $now_gmt, $points_type['reset_date'] );
+		$this->assertSameWithDelta( $now_gmt, $points_type['reset_date'] );
 	}
 }
 
