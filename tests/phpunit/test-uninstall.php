@@ -29,10 +29,15 @@ class WordPoints_Reset_Points_Uninstall_Test
 		// Check that everything with this extension's prefix has been uninstalled.
 		$this->assertUninstalledPrefix( 'wordpoints_reset_points' );
 
-		$this->assertArrayNotHasKey(
-			'reset_date'
-			, wordpoints_get_points_type( 'points' )
-		);
+		add_filter( 'wordpoints_is_uninstalling', '__return_false' );
+
+		$points_type = wordpoints_get_points_type( 'points' );
+
+		if ( $this->uninstall_extension_only ) {
+			$this->assertArrayNotHasKey( 'reset_date', $points_type );
+		} else {
+			$this->assertFalse( $points_type );
+		}
 	}
 }
 

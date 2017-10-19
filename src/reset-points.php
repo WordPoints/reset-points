@@ -44,6 +44,8 @@ wordpoints_register_extension(
 	, __FILE__
 );
 
+WordPoints_Class_Autoloader::register_dir( dirname( __FILE__ ) . '/classes' );
+
 /**
  * The extension's main functions.
  *
