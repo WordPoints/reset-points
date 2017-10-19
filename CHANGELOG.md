@@ -9,6 +9,18 @@ and [Keep a CHANGELOG](http://keepachangelog.com/).
 
 Nothing documented at this time.
 
+## [1.3.2] - 2017-10-19
+
+### Requires
+
+- WordPoints: 2.4+
+
+### Fixed
+
+- Deprecated notices from `Channel`, `Module Name`, and `Module URI` extension headers.
+- Deprecated notices from the un/installer class, by using the new installables API instead.
+- Unintended interruptions to the reset points process, by calling `wordpoints_prevent_interruptions()`.
+
 ## [1.3.1] - 2017-05-24
 
 ### Fixed
@@ -106,6 +118,7 @@ that this was exploited. #18
 - Ability points of all users to be reset to 0 on demand or on a scheduled date.
 
 [unreleased]: https://github.com/WordPoints/reset-points/compare/master...HEAD
+[1.3.2]: https://github.com/WordPoints/reset-points/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/WordPoints/reset-points/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/WordPoints/reset-points/compare/1.2.1...1.3.0
 [1.2.1]: https://github.com/WordPoints/reset-points/compare/1.2.0...1.2.1

@@ -21,7 +21,7 @@
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_Reset_Points
- * @version 1.3.1
+ * @version 1.3.2
  * @author  J.D. Grimes <jdg@codesymphony.co>
  * @license GPLv2+
  */
@@ -32,7 +32,7 @@ wordpoints_register_extension(
 		Extension URI:  https://wordpoints.org/extensions/reset-points/
 		Author:         J.D. Grimes
 		Author URI:     https://codesymphony.co/
-		Version:        1.3.1
+		Version:        1.3.2
 		License:        GPLv2+
 		Description:    Reset your users points on demand or automatically on a scheduled date.
 		Server:         wordpoints.org
