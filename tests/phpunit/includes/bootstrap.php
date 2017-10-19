@@ -12,6 +12,6 @@
  *
  * @since 1.2.0
  */
-include_once( dirname( __FILE__ ) . '/testcases/admin-screen.php' );
+require_once dirname( __FILE__ ) . '/testcases/admin-screen.php';
 
 // EOF

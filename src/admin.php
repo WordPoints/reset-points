@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Administration screen code for the module.
+ * Administration screen code for the extension.
  *
  * @package WordPoints_Reset_Points
  * @since 1.0.0
@@ -19,18 +19,18 @@ function wordpoints_reset_points_admin_menu() {
 
 	add_submenu_page(
 		'wordpoints_configure'
-		,__( 'WordPoints — Reset Points', 'wordpoints-reset-points' )
-		,__( 'Reset Points', 'wordpoints-reset-points' )
-		,'set_wordpoints_points'
-		,'wordpoints_reset_points'
-		,'wordpoints_reset_points_admin_screen'
+		, __( 'WordPoints — Reset Points', 'wordpoints-reset-points' )
+		, __( 'Reset Points', 'wordpoints-reset-points' )
+		, 'set_wordpoints_points'
+		, 'wordpoints_reset_points'
+		, 'wordpoints_reset_points_admin_screen'
 	);
 }
 add_action( 'admin_menu', 'wordpoints_reset_points_admin_menu' );
 add_action( 'network_admin_menu', 'wordpoints_reset_points_admin_menu' );
 
 /**
- * Register admin scripts and styles for the module.
+ * Register admin scripts and styles for the extension.
  *
  * @since 1.0.0
  *
@@ -38,10 +38,10 @@ add_action( 'network_admin_menu', 'wordpoints_reset_points_admin_menu' );
  */
 function wordpoints_reset_points_admin_register_scripts() {
 
-	$assets_url = wordpoints_modules_url( '/assets', __FILE__ );
-	$suffix = SCRIPT_DEBUG ? '' : '.min';
+	$assets_url = wordpoints_extensions_url( '/assets', __FILE__ );
+	$suffix     = SCRIPT_DEBUG ? '' : '.min';
 
-	$version = WordPoints_Modules::get_data( __FILE__, 'version' );
+	$version = wordpoints_get_extension_version( __FILE__ );
 
 	// JS.
 	wp_register_script(
@@ -72,7 +72,7 @@ function wordpoints_reset_points_admin_register_scripts() {
 add_action( 'admin_enqueue_scripts', 'wordpoints_reset_points_admin_register_scripts', 5 );
 
 /**
- * Display the module's administration screen.
+ * Display the extension's administration screen.
  *
  * @since 1.0.0
  */
@@ -84,10 +84,10 @@ function wordpoints_reset_points_admin_screen() {
 		'wordpoints-reset-points-admin-screen'
 		, 'WordPointsResetPointsAdminScreenL10n'
 		, array(
-			'resetButton' => __( 'Reset', 'wordpoints-reset-points' ),
-			'cancelButton' => __( 'Cancel', 'wordpoints-reset-points' ),
-			'dialogTitle' => __( 'Are you sure?', 'wordpoints-reset-points' ),
-			'dialogTextTop' => __( 'Are you sure you want to reset this points type?', 'wordpoints-reset-points' ),
+			'resetButton'      => __( 'Reset', 'wordpoints-reset-points' ),
+			'cancelButton'     => __( 'Cancel', 'wordpoints-reset-points' ),
+			'dialogTitle'      => __( 'Are you sure?', 'wordpoints-reset-points' ),
+			'dialogTextTop'    => __( 'Are you sure you want to reset this points type?', 'wordpoints-reset-points' ),
 			'dialogTextBottom' => __( 'This action cannot be undone.', 'wordpoints-reset-points' ),
 		)
 	);
@@ -168,7 +168,7 @@ function wordpoints_reset_admin_screen_process() {
 			} else {
 
 				$raw_datetime = "{$raw_date} {$raw_time}:00";
-				$timezone = wordpoints_reset_points_get_site_timezone();
+				$timezone     = wordpoints_reset_points_get_site_timezone();
 
 				if ( ! wordpoints_reset_points_validate_datetime( $raw_datetime, $timezone ) ) {
 					wordpoints_show_admin_error( __( 'Please enter a valid future date.', 'wordpoints-reset-points' ) );

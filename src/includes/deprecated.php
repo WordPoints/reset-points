@@ -1,14 +1,14 @@
 <?php
 
 /**
- * The module's deprecated functions.
+ * The extension's deprecated functions.
  *
  * @package WordPoints_Reset_Points
  * @since   1.3.0
  */
 
 /**
- * Load the module's text domain.
+ * Load the extension's text domain.
  *
  * @since 1.2.0
  * @deprecated 1.3.0

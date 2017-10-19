@@ -55,7 +55,7 @@ class WordPoints_Reset_Points_Type extends WordPoints_PHPUnit_TestCase_Points {
 
 		$user_id_2 = $this->factory->user->create();
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings                = wordpoints_get_points_type( 'points' );
 		$settings['reset_value'] = 0;
 		wordpoints_update_points_type( 'points', $settings );
 
@@ -77,7 +77,7 @@ class WordPoints_Reset_Points_Type extends WordPoints_PHPUnit_TestCase_Points {
 
 		$user_id_2 = $this->factory->user->create();
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings                = wordpoints_get_points_type( 'points' );
 		$settings['reset_value'] = 50;
 		wordpoints_update_points_type( 'points', $settings );
 
@@ -99,7 +99,7 @@ class WordPoints_Reset_Points_Type extends WordPoints_PHPUnit_TestCase_Points {
 
 		$user_id_2 = $this->factory->user->create();
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings                = wordpoints_get_points_type( 'points' );
 		$settings['reset_value'] = -50;
 		wordpoints_update_points_type( 'points', $settings );
 
@@ -119,7 +119,7 @@ class WordPoints_Reset_Points_Type extends WordPoints_PHPUnit_TestCase_Points {
 	 */
 	public function test_calls_actions() {
 
-		$settings = wordpoints_get_points_type( 'points' );
+		$settings                = wordpoints_get_points_type( 'points' );
 		$settings['reset_value'] = 0;
 		wordpoints_update_points_type( 'points', $settings );
 

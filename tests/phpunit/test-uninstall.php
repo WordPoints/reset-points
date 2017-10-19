@@ -8,12 +8,14 @@
  */
 
 /**
- * Tests uninstalling the module.
+ * Tests uninstalling the extension.
  *
  * @since 1.3.0
+ *
+ * @covers WordPoints_Reset_Points_Un_Installer
  */
 class WordPoints_Reset_Points_Uninstall_Test
-	extends WordPoints_PHPUnit_TestCase_Module_Uninstall {
+	extends WordPoints_PHPUnit_TestCase_Extension_Uninstall {
 
 	/**
 	 * Test installation and uninstallation.
@@ -24,13 +26,18 @@ class WordPoints_Reset_Points_Uninstall_Test
 
 		$this->uninstall();
 
-		// Check that everything with this module's prefix has been uninstalled.
+		// Check that everything with this extension's prefix has been uninstalled.
 		$this->assertUninstalledPrefix( 'wordpoints_reset_points' );
 
-		$this->assertArrayNotHasKey(
-			'reset_date'
-			, wordpoints_get_points_type( 'points' )
-		);
+		add_filter( 'wordpoints_is_uninstalling', '__return_false' );
+
+		$points_type = wordpoints_get_points_type( 'points' );
+
+		if ( $this->uninstall_extension_only ) {
+			$this->assertArrayNotHasKey( 'reset_date', $points_type );
+		} else {
+			$this->assertFalse( $points_type );
+		}
 	}
 }
 

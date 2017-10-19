@@ -4,13 +4,17 @@
  * Un/installer class.
  *
  * @package WordPoints_Reset_Points
- * @since   1.3.0
+ * @since 1.3.0
+ * @deprecated 1.3.2
  */
 
+_deprecated_file( __FILE__, '1.3.2' );
+
 /**
- * Uninstalls the module.
+ * Uninstalls the extension.
  *
  * @since 1.3.0
+ * @deprecated 1.3.2
  */
 class WordPoints_Reset_Points_Un_Installer extends WordPoints_Un_Installer_Base {
 
@@ -18,13 +22,6 @@ class WordPoints_Reset_Points_Un_Installer extends WordPoints_Un_Installer_Base 
 	 * @since 1.3.0
 	 */
 	protected $type = 'module';
-
-	/**
-	 * @since 1.8.0
-	 */
-	protected $updates = array(
-		'1.3.0' => array( 'single' => true, 'site' => true, 'network' => true ),
-	);
 
 	/**
 	 * @since 1.3.0
@@ -57,32 +54,14 @@ class WordPoints_Reset_Points_Un_Installer extends WordPoints_Un_Installer_Base 
 	}
 
 	/**
-	 * Uninstalls the points type settings added by the module.
+	 * Uninstalls the points type settings added by the extension.
 	 *
 	 * @since 1.3.0
 	 */
 	protected function uninstall_points_type_settings() {
 
-		foreach ( wordpoints_get_points_types() as $slug => $settings ) {
-
-			unset( $settings['reset_date'] );
-
-			wordpoints_update_points_type( $slug, $settings );
-		}
-	}
-
-	/**
-	 * @since 1.3.0
-	 */
-	protected function before_update() {
-
-		parent::before_update();
-
-		if ( $this->network_wide ) {
-			unset( $this->updates['1_3_0']['site'] );
-		} else {
-			unset( $this->updates['1_3_0']['network'] );
-		}
+		$routine = new WordPoints_Reset_Points_Uninstaller_Points_Types_Settings();
+		$routine->run();
 	}
 
 	/**
@@ -122,17 +101,8 @@ class WordPoints_Reset_Points_Un_Installer extends WordPoints_Un_Installer_Base 
 	 */
 	protected function update_points_type_settings_to_1_3_0() {
 
-		foreach ( wordpoints_get_points_types() as $slug => $settings ) {
-
-			if ( ! isset( $settings['reset_date'] ) ) {
-				continue;
-			}
-
-			// Convert the reset timestamp back to GMT rather than "local" time.
-			$settings['reset_date'] -= get_option( 'gmt_offset' ) * HOUR_IN_SECONDS;
-
-			wordpoints_update_points_type( $slug, $settings );
-		}
+		$routine = new WordPoints_Reset_Points_Updater_1_3_0_Points_Types_Settings();
+		$routine->run();
 	}
 }
 

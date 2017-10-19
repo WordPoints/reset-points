@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The module's main functions.
+ * The extension's main functions.
  *
  * @package WordPoints_Reset_Points
  * @since   1.3.0
@@ -30,6 +30,8 @@ function wordpoints_reset_points_type( $points_type ) {
 	if ( false === wordpoints_int( $reset_value ) ) {
 		return false;
 	}
+
+	wordpoints_prevent_interruptions();
 
 	/**
 	 * Fires before all users' points are reset.
@@ -123,8 +125,8 @@ function wordpoints_reset_points_get_site_timezone() {
 		if ( empty( $offset ) ) {
 			$timezone_string = 'UTC';
 		} else {
-			$hours   = (int) $offset;
-			$minutes = ( $offset - floor( $offset ) ) * 60;
+			$hours           = (int) $offset;
+			$minutes         = ( $offset - floor( $offset ) ) * 60;
 			$timezone_string = sprintf( '%+03d:%02d', $hours, $minutes );
 		}
 	}

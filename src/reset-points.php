@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Main file of the module.
+ * Main file of the extension.
  *
  * ---------------------------------------------------------------------------------|
  * Copyright 2013-17  J.D. Grimes  (email : jdg@codesymphony.co)
@@ -21,45 +21,52 @@
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_Reset_Points
- * @version 1.3.1
+ * @version 1.3.2
  * @author  J.D. Grimes <jdg@codesymphony.co>
  * @license GPLv2+
  */
 
-WordPoints_Modules::register(
+wordpoints_register_extension(
 	'
-		Module Name: Reset Points
-		Module URI:  https://wordpoints.org/modules/reset-points/
-		Author:      J.D. Grimes
-		Author URI:  https://codesymphony.co/
-		Version:     1.3.1
-		License:     GPLv2+
-		Description: Reset your users points on demand or automatically on a scheduled date.
-		Channel:     wordpoints.org
-		ID:          540
-		Text Domain: wordpoints-reset-points
-		Domain Path: /languages
-		Namespace:   Reset_Points
+		Extension Name: Reset Points
+		Extension URI:  https://wordpoints.org/extensions/reset-points/
+		Author:         J.D. Grimes
+		Author URI:     https://codesymphony.co/
+		Version:        1.3.2
+		License:        GPLv2+
+		Description:    Reset your users points on demand or automatically on a scheduled date.
+		Server:         wordpoints.org
+		ID:             540
+		Text Domain:    wordpoints-reset-points
+		Domain Path:    /languages
+		Namespace:      Reset_Points
 	'
 	, __FILE__
 );
 
-/**
- * The module's main functions.
- *
- * @since 1.3.0
- */
-require_once( dirname( __FILE__ ) . '/includes/functions.php' );
+WordPoints_Class_Autoloader::register_dir( dirname( __FILE__ ) . '/classes' );
 
 /**
- * The module's deprecated functions.
+ * The extension's main functions.
  *
  * @since 1.3.0
  */
-require_once( dirname( __FILE__ ) . '/includes/deprecated.php' );
+require_once dirname( __FILE__ ) . '/includes/functions.php';
+
+/**
+ * The extension's deprecated functions.
+ *
+ * @since 1.3.0
+ */
+require_once dirname( __FILE__ ) . '/includes/deprecated.php';
 
 if ( is_admin() ) {
-	include dirname( __FILE__ ) . '/admin.php';
+	/**
+	 * The extension's admin-side code.
+	 *
+	 * @since 1.0.0
+	 */
+	require_once dirname( __FILE__ ) . '/admin.php';
 }
 
 // EOF
