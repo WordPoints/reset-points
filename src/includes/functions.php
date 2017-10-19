@@ -31,6 +31,8 @@ function wordpoints_reset_points_type( $points_type ) {
 		return false;
 	}
 
+	wordpoints_prevent_interruptions();
+
 	/**
 	 * Fires before all users' points are reset.
 	 *
