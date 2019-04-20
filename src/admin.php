@@ -49,6 +49,7 @@ function wordpoints_reset_points_admin_register_scripts() {
 		, "{$assets_url}/js/admin-screen{$suffix}.js"
 		, array( 'jquery-ui-dialog', 'jquery-ui-datepicker' )
 		, $version
+		, true
 	);
 
 	// CSS.
@@ -98,9 +99,9 @@ function wordpoints_reset_points_admin_screen() {
 /**
  * Process the reset points settings form when it is submitted.
  *
- * @since 1.2.0
+ * @since 1.4.0
  */
-function wordpoints_reset_admin_screen_process() {
+function wordpoints_reset_points_admin_screen_process() {
 
 	$points_types = wordpoints_get_points_types();
 

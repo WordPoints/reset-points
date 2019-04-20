@@ -17,7 +17,7 @@
 	<?php else : ?>
 		<?php
 
-		wordpoints_reset_admin_screen_process();
+		wordpoints_reset_points_admin_screen_process();
 
 		?>
 
@@ -28,7 +28,7 @@
 		<form id="reset-points-type" method="POST">
 			<table class="widefat striped">
 				<tbody>
-					<?php foreach ( wordpoints_get_points_types() as $slug => $points_type ) : ?>
+					<?php foreach ( wordpoints_get_points_types() as $slug => $points_type ) : // WPCS: prefix OK. ?>
 						<tr>
 							<th><?php echo esc_html( $points_type['name'] ); ?></th>
 							<td>
