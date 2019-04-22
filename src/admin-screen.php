@@ -64,7 +64,7 @@
 										value="<?php echo ( ! empty( $points_type['reset_date'] ) ) ? esc_html( date( 'H:i', $points_type['reset_date'] ) ) : '00:00'; ?>"
 									/>
 								</label>
-								<?php submit_button( __( 'Set Date', 'wordpoints-reset-points' ), 'secondary', "reset-points-type-date-set-{$slug}", false ); ?>
+								<?php submit_button( __( 'Set Date', 'wordpoints-reset-points' ), '', "reset-points-type-date-set-{$slug}", false ); ?>
 							</td>
 							<td><?php submit_button( __( 'Reset Now', 'wordpoints-reset-points' ), 'delete', "reset-points-type-{$slug}", false ); ?></td>
 						</tr>
