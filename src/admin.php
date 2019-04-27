@@ -171,7 +171,7 @@ function wordpoints_reset_points_admin_screen_process() {
 				$raw_datetime = "{$raw_date} {$raw_time}:00";
 				$timezone     = wordpoints_reset_points_get_site_timezone();
 
-				if ( ! wordpoints_reset_points_validate_datetime( $raw_datetime, $timezone ) ) {
+				if ( empty( $raw_date ) || ! wordpoints_reset_points_validate_datetime( $raw_datetime, $timezone ) ) {
 					wordpoints_show_admin_error( __( 'Please enter a valid future date.', 'wordpoints-reset-points' ) );
 					break;
 				}
