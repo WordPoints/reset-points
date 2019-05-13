@@ -4,12 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2066bec6643eb1932d3acdb2ad2fae5",
+    "content-hash": "a6d768ebdf34bc89f5b8cfecf744b3d8",
     "packages": [],
     "packages-dev": [
         {
             "name": "jdgrimes/wpppb",
-            "version": "dev-master",
+            "version": "0.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JDGrimes/wpppb.git",
@@ -83,9 +83,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "jdgrimes/wpppb": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
