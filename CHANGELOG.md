@@ -9,6 +9,21 @@ and [Keep a CHANGELOG](http://keepachangelog.com/).
 
 Nothing documented at this time.
 
+## [1.4.0] - 2019-05-13
+
+### Changed
+
+- Points metadata is now deleted in bulk when possible. #32
+- Button classes: removed `button-secondary` and added `button` to all `button-primary`.
+
+### Deprecated
+
+- `wordpoints_reset_admin_screen_process()` in favor of `wordpoints_reset_points_admin_screen_process()`.
+
+### Fixed
+
+- Missing validation that the date is not empty when being set on the admin screen. #33
+
 ## [1.3.2] - 2017-10-19
 
 ### Requires
@@ -118,6 +133,7 @@ that this was exploited. #18
 - Ability points of all users to be reset to 0 on demand or on a scheduled date.
 
 [unreleased]: https://github.com/WordPoints/reset-points/compare/master...HEAD
+[1.4.0]: https://github.com/WordPoints/reset-points/compare/1.3.2...1.4.0
 [1.3.2]: https://github.com/WordPoints/reset-points/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/WordPoints/reset-points/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/WordPoints/reset-points/compare/1.2.1...1.3.0

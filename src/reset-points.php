@@ -4,7 +4,7 @@
  * Main file of the extension.
  *
  * ---------------------------------------------------------------------------------|
- * Copyright 2013-17  J.D. Grimes  (email : jdg@codesymphony.co)
+ * Copyright 2013-19  J.D. Grimes  (email : jdg@codesymphony.co)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or later, as
@@ -21,7 +21,7 @@
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_Reset_Points
- * @version 1.3.2
+ * @version 1.4.0
  * @author  J.D. Grimes <jdg@codesymphony.co>
  * @license GPLv2+
  */
@@ -32,7 +32,7 @@ wordpoints_register_extension(
 		Extension URI:  https://wordpoints.org/extensions/reset-points/
 		Author:         J.D. Grimes
 		Author URI:     https://codesymphony.co/
-		Version:        1.3.2
+		Version:        1.4.0
 		License:        GPLv2+
 		Description:    Reset your users points on demand or automatically on a scheduled date.
 		Server:         wordpoints.org
