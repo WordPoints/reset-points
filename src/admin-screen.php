@@ -17,7 +17,7 @@
 	<?php else : ?>
 		<?php
 
-		wordpoints_reset_admin_screen_process();
+		wordpoints_reset_points_admin_screen_process();
 
 		?>
 
@@ -28,7 +28,7 @@
 		<form id="reset-points-type" method="POST">
 			<table class="widefat striped">
 				<tbody>
-					<?php foreach ( wordpoints_get_points_types() as $slug => $points_type ) : ?>
+					<?php foreach ( wordpoints_get_points_types() as $slug => $points_type ) : // WPCS: prefix OK. ?>
 						<tr>
 							<th><?php echo esc_html( $points_type['name'] ); ?></th>
 							<td>
@@ -64,7 +64,7 @@
 										value="<?php echo ( ! empty( $points_type['reset_date'] ) ) ? esc_html( date( 'H:i', $points_type['reset_date'] ) ) : '00:00'; ?>"
 									/>
 								</label>
-								<?php submit_button( __( 'Set Date', 'wordpoints-reset-points' ), 'secondary', "reset-points-type-date-set-{$slug}", false ); ?>
+								<?php submit_button( __( 'Set Date', 'wordpoints-reset-points' ), '', "reset-points-type-date-set-{$slug}", false ); ?>
 							</td>
 							<td><?php submit_button( __( 'Reset Now', 'wordpoints-reset-points' ), 'delete', "reset-points-type-{$slug}", false ); ?></td>
 						</tr>

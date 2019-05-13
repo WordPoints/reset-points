@@ -7,6 +7,8 @@
  * @since   1.3.0
  */
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
+
 /**
  * Load the extension's text domain.
  *
@@ -59,6 +61,23 @@ function wordpoints_points_reset_on_date() {
 	);
 
 	wordpoints_reset_points_on_date();
+}
+
+/**
+ * Process the reset points settings form when it is submitted.
+ *
+ * @since 1.2.0
+ * @deprecated 1.4.0 Use wordpoints_reset_points_admin_screen_process() instead.
+ */
+function wordpoints_reset_admin_screen_process() {
+
+	_deprecated_function(
+		__FUNCTION__
+		, '1.4.0'
+		, 'wordpoints_reset_points_admin_screen_process'
+	);
+
+	wordpoints_reset_points_admin_screen_process();
 }
 
 // EOF

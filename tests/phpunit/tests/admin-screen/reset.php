@@ -1,20 +1,21 @@
 <?php
 
 /**
- * Test case for the wordpoints_reset_admin_screen_process() function.
+ * Test case for the wordpoints_reset_points_admin_screen_process() function.
  *
  * @package WordPoints_Reset_Points
  * @since 1.2.0
  */
 
 /**
- * Tests for the wordpoints_reset_admin_screen_process() function.
+ * Tests for the wordpoints_reset_points_admin_screen_process() function.
  *
- * @since 1.2.0
+ * @since 1.2.0 As WordPoints_Reset_Admin_Screen_Reset_Test.
+ * @since 1.4.0
  *
- * @covers ::wordpoints_reset_admin_screen_process
+ * @covers ::wordpoints_reset_points_admin_screen_process
  */
-class WordPoints_Reset_Admin_Screen_Reset_Test
+class WordPoints_Reset_Points_Admin_Screen_Reset_Test
 	extends WordPoints_Reset_Points_Admin_Screen_UnitTestCase {
 
 	/**
@@ -47,7 +48,7 @@ class WordPoints_Reset_Admin_Screen_Reset_Test
 	public function test_points_reset() {
 
 		ob_start();
-		wordpoints_reset_admin_screen_process();
+		wordpoints_reset_points_admin_screen_process();
 		$notices = ob_get_clean();
 
 		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'success' ) );
@@ -133,7 +134,7 @@ class WordPoints_Reset_Admin_Screen_Reset_Test
 	public function assert_fails() {
 
 		ob_start();
-		wordpoints_reset_admin_screen_process();
+		wordpoints_reset_points_admin_screen_process();
 		$notices = ob_get_clean();
 
 		$this->assertWordPointsAdminNotice( $notices, array( 'type' => 'error' ) );
@@ -150,7 +151,7 @@ class WordPoints_Reset_Admin_Screen_Reset_Test
 	public function assert_nothing_happens() {
 
 		ob_start();
-		wordpoints_reset_admin_screen_process();
+		wordpoints_reset_points_admin_screen_process();
 		$notices = ob_get_clean();
 
 		$this->assertSame( '', $notices );

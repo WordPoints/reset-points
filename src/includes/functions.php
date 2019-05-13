@@ -43,10 +43,17 @@ function wordpoints_reset_points_type( $points_type ) {
 	 */
 	do_action( 'wordpoints_reset_points_before', $points_type, $reset_value );
 
-	$user_ids = get_users( array( 'fields' => 'ids' ) );
+	if ( 0 === $reset_value ) {
 
-	foreach ( $user_ids as $user_id ) {
-		update_user_meta( $user_id, $meta_key, $reset_value );
+		delete_metadata( 'user', false, $meta_key, '', true );
+
+	} else {
+
+		$user_ids = get_users( array( 'fields' => 'ids' ) );
+
+		foreach ( $user_ids as $user_id ) {
+			update_user_meta( $user_id, $meta_key, $reset_value );
+		}
 	}
 
 	/**
